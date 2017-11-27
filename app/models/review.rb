@@ -1,2 +1,2 @@
-class Review < ApplicationRecord
+class Comment < ApplicationRecord
 end
