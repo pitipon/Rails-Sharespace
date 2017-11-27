@@ -10,9 +10,41 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20171127095058) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "reviews", force: :cascade do |t|
+    t.text "message"
+    t.integer "user_id"
+    t.integer "workspace_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "workspaces", force: :cascade do |t|
+    t.integer "price_per_day"
+    t.text "owner_id"
+    t.text "space_type"
+    t.integer "capacity_max"
+    t.text "environment"
+    t.text "theme"
+    t.text "available_time"
+    t.boolean "catering"
+    t.boolean "security"
+    t.text "media"
+    t.text "services"
+    t.text "free_rooms"
+    t.text "pet_friendly"
+    t.text "utilities"
+    t.text "address"
+    t.text "near_location"
+    t.integer "contact_number"
+    t.text "contact_name"
+    t.text "email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
 end
