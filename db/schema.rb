@@ -79,7 +79,7 @@ ActiveRecord::Schema.define(version: 20171127095058) do
 
   create_table "workspaces", force: :cascade do |t|
     t.integer "price_per_day"
-    t.text "owner_id"
+    t.integer "owner_id"
     t.text "space_type"
     t.integer "capacity_max"
     t.text "environment"
