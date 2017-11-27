@@ -1,6 +1,9 @@
 source 'https://rubygems.org'
 ruby '2.3.5'
 
+
+gem 'devise'
+
 gem 'figaro'
 gem 'jbuilder', '~> 2.0'
 gem 'pg'
