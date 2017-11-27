@@ -69,7 +69,7 @@ ActiveRecord::Schema.define(version: 20171127095058) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  create_table "reviews", force: :cascade do |t|
+  create_table "comments", force: :cascade do |t|
     t.text "message"
     t.integer "user_id"
     t.integer "workspace_id"
