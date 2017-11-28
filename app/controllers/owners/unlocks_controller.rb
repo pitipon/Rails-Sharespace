@@ -1,4 +1,5 @@
 class Owners::UnlocksController < Devise::UnlocksController
+  layout 'owner'
   # GET /resource/unlock/new
   # def new
   #   super

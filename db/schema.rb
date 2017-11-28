@@ -12,6 +12,7 @@
 
 ActiveRecord::Schema.define(version: 20171128052057) do
 
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -84,7 +85,7 @@ ActiveRecord::Schema.define(version: 20171128052057) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  create_table "workspace", force: :cascade do |t|
+  create_table "workspaces", force: :cascade do |t|
     t.integer "price_per_day"
     t.integer "owner_id"
     t.text "space_type"
@@ -106,6 +107,8 @@ ActiveRecord::Schema.define(version: 20171128052057) do
     t.text "email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "title"
+    t.string "photo"
   end
 
 end

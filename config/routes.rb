@@ -1,5 +1,15 @@
 Rails.application.routes.draw do
 
+  # resources :workspaces
+  # get 'workspaces/index'
+
+  # get 'workspaces/create'
+
+  # get 'workspaces/edit'
+
+  # get 'workspaces/list_by_owner'
+
+  # get 'workspaces/show'
 
   devise_for :users, path: 'users', controllers: {
     sessions: "users/sessions"
@@ -9,7 +19,19 @@ Rails.application.routes.draw do
     sessions: "owners/sessions"
   }
 
+  # Root for User
+  authenticated :user do
+    root to: 'pages#user', as: :authenticated_user
+  end
+
+  # Root for Owner
+  authenticated :owner do
+    root to: 'pages#owner', as: :authenticated_owner
+  end
+
+  # Root for Visitor
   root to: 'pages#home'
+
 
   resources :orders, except: [:new, :create] do
     namespace :actions do
@@ -19,9 +41,10 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :workspace do
+  resources :workspaces do
     resources :orders, only: [:new, :create]
   end
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
 
