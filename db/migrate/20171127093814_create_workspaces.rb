@@ -1,6 +1,9 @@
 class CreateWorkspaces < ActiveRecord::Migration[5.1]
   def change
     create_table :workspace do |t|
+      t.text :name
+      t.text :description
+      t.text :address
       t.integer :price_per_day
       t.integer :owner_id
       t.text :space_type
@@ -15,11 +18,10 @@ class CreateWorkspaces < ActiveRecord::Migration[5.1]
       t.text :free_rooms
       t.text :pet_friendly
       t.text :utilities
-      t.text :address
       t.text :near_location
       t.integer :contact_number
       t.text :contact_name
-      t.text :email
+      t.text :contact_email
 
       t.timestamps
     end
