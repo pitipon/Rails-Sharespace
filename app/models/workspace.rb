@@ -4,5 +4,5 @@ class Workspace < ApplicationRecord
   has_many :order
   has_many :picture
 
-  validates :user_id, :owner_id
+  # validates :user_id, :owner_id
 end

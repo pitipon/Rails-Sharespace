@@ -1,0 +1,9 @@
+<%= simple_form_for (workspace_orders_path(@workspace, @order)) do |f| %>
+  <%= f.input :remark %>
+  <%= f.input :start_date %>
+  <%= f.input :end_date %>
+
+  <%= f.submit %>
+<% end %>
+
+
