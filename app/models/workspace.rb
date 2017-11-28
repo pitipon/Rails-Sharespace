@@ -1,6 +1,6 @@
 class Workspace < ApplicationRecord
   belongs_to :owner
-  has_many :comments
+  has_many :comment
   has_many :orders
   has_many :picture
 
