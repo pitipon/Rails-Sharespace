@@ -1,5 +1,5 @@
-<h1>test</h1>
-<%= simple_form_for [@workspace] do |f| %>
-  <%= f.input :title, placeholder: "title", :required => true %>
-  <%= f.submit class: "btn btn-primary btn-margin" %>
+<h1>Hey <%= @owner.email %>, add your workspace</h1>
+<%= simple_form_for [@owner, @workspace] do |f| %>
+  <%= f.input :name, placeholder: "space name"%>
+  <%= f.submit "add workspace", class: "btn btn-primary btn-margin" %>
 <% end %>
