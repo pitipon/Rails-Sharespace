@@ -1,0 +1,5 @@
+<h1>test</h1>
+<%= simple_form_for [@workspace] do |f| %>
+  <%= f.input :title, placeholder: "title", :required => true %>
+  <%= f.submit class: "btn btn-primary btn-margin" %>
+<% end %>

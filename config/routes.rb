@@ -1,5 +1,15 @@
 Rails.application.routes.draw do
 
+  resources :workspaces
+  # get 'workspaces/index'
+
+  # get 'workspaces/create'
+
+  # get 'workspaces/edit'
+
+  # get 'workspaces/list_by_owner'
+
+  # get 'workspaces/show'
 
   devise_for :users, path: 'users', controllers: {
     sessions: "users/sessions"
