@@ -1,4 +1,4 @@
-class OrderController < ApplicationController
+class OrdersController < ApplicationController
 
   def index
     @orders = Order.all
@@ -9,7 +9,9 @@ class OrderController < ApplicationController
   end
 
   def new
-    @order = Order.new
+    @workspace = Workspace.find(params[:workspace_id])
+
+    @order = @workspace.orders.new
   end
 
   def create
@@ -33,6 +35,22 @@ class OrderController < ApplicationController
   def destroy
     @order = Order.find(params[:id])
     @order.destroy
+  end
+
+  def list_by_user
+    @orders = Order.find(params[:user_id])
+  end
+
+  def approve
+    redirect_to order_path(@order)
+  end
+
+  def reject
+    redirect_to order_path(@order)
+  end
+
+  def confirm
+    redirect_to order_path(@order)
   end
 
   private

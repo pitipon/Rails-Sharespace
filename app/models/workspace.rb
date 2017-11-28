@@ -11,6 +11,4 @@ class Workspace < ApplicationRecord
   has_many :comment
   has_many :order
 
-
-
 end

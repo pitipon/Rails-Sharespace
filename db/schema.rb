@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(version: 20171128061614) do
     t.text "remark"
     t.integer "user_id"
     t.integer "workspace_id"
-    t.date "state_date"
+    t.date "start_date"
     t.date "end_date"
     t.text "state"
     t.datetime "created_at", null: false

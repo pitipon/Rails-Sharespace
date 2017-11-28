@@ -5,7 +5,7 @@ class WorkspacesController < ApplicationController
 
   # GET /workspaces
   def index
-    @workspace = Workspace.all
+    @workspaces = Workspace.all
   end
 
   # GET /workspaces/1

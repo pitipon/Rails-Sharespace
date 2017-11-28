@@ -1,8 +1,4 @@
 Rails.application.routes.draw do
-
-  resources :workspaces
-
-
   devise_for :users, path: 'users', controllers: {
     sessions: "users/sessions"
   }
@@ -27,6 +23,18 @@ Rails.application.routes.draw do
   # Root for Visitor
   root to: 'pages#home'
 
+
+  resources :orders, except: [:new, :create] do
+    namespace :actions do
+      post :approve
+      post :reject
+      post :confirm
+    end
+  end
+
+  resources :workspaces do
+    resources :orders, only: [:new, :create]
+  end
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
