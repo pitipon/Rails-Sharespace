@@ -10,11 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema.define(version: 20171127095058) do
+ActiveRecord::Schema.define(version: 20171127104847) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "comments", force: :cascade do |t|
+    t.text "message"
+    t.integer "user_id"
+    t.integer "workspace_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "orders", force: :cascade do |t|
     t.text "remark"
@@ -23,14 +30,6 @@ ActiveRecord::Schema.define(version: 20171127095058) do
     t.date "state_date"
     t.date "end_date"
     t.text "state"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "transactions", force: :cascade do |t|
-    t.text "changes"
-    t.text "message"
-    t.integer "order_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -52,6 +51,22 @@ ActiveRecord::Schema.define(version: 20171127095058) do
     t.index ["reset_password_token"], name: "index_owners_on_reset_password_token", unique: true
   end
 
+  create_table "pictures", force: :cascade do |t|
+    t.text "image_url"
+    t.integer "id_workspace"
+    t.text "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "transactions", force: :cascade do |t|
+    t.text "changes"
+    t.text "message"
+    t.integer "order_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -69,15 +84,7 @@ ActiveRecord::Schema.define(version: 20171127095058) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  create_table "comments", force: :cascade do |t|
-    t.text "message"
-    t.integer "user_id"
-    t.integer "workspace_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "workspaces", force: :cascade do |t|
+  create_table "workspace", force: :cascade do |t|
     t.integer "price_per_day"
     t.integer "owner_id"
     t.text "space_type"
