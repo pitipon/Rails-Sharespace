@@ -85,6 +85,9 @@ ActiveRecord::Schema.define(version: 20171128061614) do
   end
 
   create_table "workspaces", force: :cascade do |t|
+    t.text "name"
+    t.text "description"
+    t.text "address"
     t.integer "price_per_day"
     t.integer "owner_id"
     t.text "space_type"
@@ -99,11 +102,10 @@ ActiveRecord::Schema.define(version: 20171128061614) do
     t.text "free_rooms"
     t.text "pet_friendly"
     t.text "utilities"
-    t.text "address"
     t.text "near_location"
     t.integer "contact_number"
     t.text "contact_name"
-    t.text "email"
+    t.text "contact_email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text "title"
