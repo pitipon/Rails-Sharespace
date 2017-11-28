@@ -25,6 +25,8 @@ end
     name: "#{Faker::StarTrek.villain} Space",
     description: Faker::StarWars.quote,
     address: "#{Faker::Address.street_address} #{Faker::Address.secondary_address} ,#{Faker::Address.state}",
+    city: Faker::Address.city,
+    country: Faker::Address.country,
     latitude: Faker::Address.latitude ,
     longitude: Faker::Address.longitude ,
     price_per_day: rand(10...300),

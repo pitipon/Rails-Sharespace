@@ -16,7 +16,7 @@ class Workspace < ApplicationRecord
   NEAR = ["Airport", "Underground", "Downtown", "Beach", "Mountain"]
 
   belongs_to :owner
-  has_many :comment
-  has_many :order
+  has_many :comments
+  has_many :orders
 
 end

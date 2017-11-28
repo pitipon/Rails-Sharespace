@@ -4,6 +4,8 @@ class CreateWorkspaces < ActiveRecord::Migration[5.1]
       t.text :name
       t.text :description
       t.text :address
+      t.text :city
+      t.text :country
       t.text :latitude
       t.text :longitude
       t.integer :price_per_day

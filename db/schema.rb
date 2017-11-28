@@ -88,6 +88,8 @@ ActiveRecord::Schema.define(version: 20171128052057) do
     t.text "name"
     t.text "description"
     t.text "address"
+    t.text "city"
+    t.text "country"
     t.text "latitude"
     t.text "longitude"
     t.integer "price_per_day"
