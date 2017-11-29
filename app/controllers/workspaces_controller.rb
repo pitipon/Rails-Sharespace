@@ -1,11 +1,16 @@
 class WorkspacesController < ApplicationController
   layout 'owner'
   before_action :set_workspace, only: [:show]
-  before_action :set_owner, only: [:new, :create]
+  before_action :set_owner, only: [ :new, :create]
 
-  # GET /workspaces
+
+  # GET    /owner/:owner_id/workspaces
   def index
-    @workspaces = Workspace.all
+    # @owner
+    # @workspaces 
+    @owner = current_owner
+    find_workspaces_of_owner
+
   end
 
   # GET /workspaces/1
@@ -43,6 +48,14 @@ private
   #  find workspace by id
   def set_workspace
     @workspace = Workspace.find(params[:id])
+  end
+
+  def find_workspaces_of_owner
+    @workspaces = []
+    @owner.workspaces.each do |x|
+      @workspaces << x
+    end
+
   end
 
   def workspace_params

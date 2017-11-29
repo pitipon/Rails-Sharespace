@@ -20,32 +20,34 @@ owners = []
   )
 end
 
-10.times do
+100.times do
   Workspace.create!(
-    price_per_day: Faker::Number.normal(5000, 1.5),
-    space_type: Faker::RuPaul.quote,
-    capacity_max: Faker::Number.between(1, 100),
-    environment: Faker::Movie.quote,
-    available_time: Faker::Time.between(2.days.ago, Date.today, :all),
-    catering: Faker::Boolean,
-    security: Faker::Boolean,
-    media: Faker::Boolean,
-    free_rooms: Faker::Boolean,
-    pet_friendly: Faker::Boolean,
-    utilities: Faker::Pokemon.name,
-    address: Faker::Address.street_address,
-    near_location: Faker::Zelda.location,
-    contact_number: Faker::PhoneNumber.phone_number,
-    contact_name: Faker::Name.name,
-    email: Faker::Internet.email,
-    owner: owners.sample
-  )
-end
-
-
-10.times do
-  User.create!(
-    email: Faker::Internet.email,
-    password: 1231234
+    name: "#{Faker::StarTrek.villain} Space",
+    description: Faker::StarWars.quote,
+    address: "#{Faker::Address.street_address} #{Faker::Address.secondary_address} ,#{Faker::Address.state}",
+    city: Faker::Address.city,
+    country: Faker::Address.country,
+    latitude: Faker::Address.latitude ,
+    longitude: Faker::Address.longitude ,
+    price_per_day: rand(10...300),
+    owner: owners.sample ,
+    space_type: Workspace::SPACETYPE.sample,
+    capacity_max: rand(10...300),
+    environment: Workspace::ENVIRONMENT.sample,
+    theme: Workspace::THEME.sample,
+    available_time: Workspace::AVAILABLE_TIME.sample,
+    catering: Workspace::CATERING.sample,
+    security: Workspace::SECURITY.sample,
+    media: Workspace::MEDIA.sample,
+    services: Workspace::SERVICES.sample,
+    free_rooms: Workspace::FREEROOMS.sample,
+    parkings: Workspace::PARKINGS.sample,
+    pet_friendly: Workspace::PET_FRIENDLY.sample,
+    utilities: Workspace::UTILITIES.sample,
+    near_location: Workspace::NEAR.sample,
+    contact_number: Faker::Company.duns_number,
+    contact_name: Faker::DragonBall.character,
+    contact_email: Faker::Internet.email,
+    logo: Faker::Company.logo
   )
 end
