@@ -25,12 +25,24 @@
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A deserunt neque tempore recusandae animi soluta quasi? Asperiores rem dolore eaque vel, porro, soluta unde debitis aliquam laboriosam. Repellat explicabo, maiores!</p>
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis optio neque consectetur consequatur magni in nisi, natus beatae quidem quam odit commodi ducimus totam eum, alias, adipisci nesciunt voluptate. Voluptatum.</p>
           <p>
-            <a class="btn btn-primary btn-lg" href="#">Call to Action &raquo;</a>
+            <a class="btn btn-primary btn-sm" href="#">Booking &raquo;</a>
           </p>
         </div>
+
+
+
+
         <div class="col-sm-4">
 
-          <h2 class="mt-4">Contact Us</h2>
+          <div class="box-price">
+            <h2>Price: $<%= @workspace.price_per_day %>/Day</h2>
+            <br>
+            <a class="btn btn-primary btn-lg" href="#">Booking with us  &raquo;</a>
+            <br>
+          </div>
+
+
+          <h3>Contact Us</h3>
 
           <address>
             <strong><%= @workspace.name %></strong>
@@ -53,3 +65,28 @@
       <!-- /.row -->
 
     </div>
+
+    <div id="map" class="mobile-display"></div>
+
+
+    <!-- Gmaps js: building the map -->
+<script>
+  function initMap() {
+    // Create a map object and specify the DOM element for display.
+    var map = new google.maps.Map(document.getElementById('map'), {
+      center: {
+        lat: 52.5206,
+        lng: 13.4098
+      },
+      scrollwheel: false,
+      zoom: 8
+    });
+  }
+</script>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<!-- Gmaps JavaScript -->
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAsnmPj0gjQ-azvfUbyFmYsHiafwO-Abzc&callback=initMap">
+</script>
