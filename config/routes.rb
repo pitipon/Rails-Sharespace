@@ -9,7 +9,11 @@ Rails.application.routes.draw do
 
   # Root for User
   authenticated :user do
-    root to: 'pages#user', as: :authenticated_user
+    root to: 'workspaces#home', as: :authenticated_user
+
+      resources :user, only: [] do
+        get '/workspaces', to: 'workspaces#home', as: 'workspaces'
+      end
   end
 
   # Root for Owner
@@ -32,9 +36,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :workspaces do
-    resources :orders, only: [:new, :create]
-  end
+
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
