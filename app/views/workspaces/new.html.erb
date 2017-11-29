@@ -3,21 +3,54 @@
 
 
 <%= simple_form_for [@owner, @workspace] do |f| %>
-  <div><%= f.input :name, placeholder: "space name"%></div>
-          <div class="row">
+  <div><%= f.input :name, placeholder: "Space Name"%></div>
+    <div class="row">
         <div class="col-sm-6">
-  <%= f.input :space_type, collection: Workspace::SPACETYPE %>
-  <%= f.input :environment, collection: Workspace::ENVIRONMENT %>
-  <%= f.input :theme, collection: Workspace::THEME %>
-  <%= f.input :available_time, collection: Workspace::AVAILABLE_TIME %>
-  <%= f.input :catering, collection: Workspace::CATERING %>
-    </div>
+          <div>
+              <i class="fa fa-building-o" aria-hidden="true">
+
+              </i><%= f.input :space_type, collection: Workspace::SPACETYPE %>
+          </div>
+          <div>
+            <i class="fa fa-envira" aria-hidden="true">
+
+            </i><%= f.input :environment, collection: Workspace::ENVIRONMENT %>
+          </div>
+          <div>
+            <i class="fa fa-magic" aria-hidden="true">
+
+            </i><%= f.input :theme, collection: Workspace::THEME %>
+          </div>
+          <div>
+            <i class="fa fa-calendar" aria-hidden="true">
+
+            </i><%= f.input :available_time, collection: Workspace::AVAILABLE_TIME %>
+          </div>
+          <div>
+            <i class="fa fa-cutlery" aria-hidden="true"></i>
+            <%= f.input :catering, collection: Workspace::CATERING %>
+          </div>
+      </div>
     <div class="col-sm-6">
-  <%= f.input :security, collection: Workspace::SECURITY %>
-  <%= f.input :media, collection: Workspace::MEDIA %>
-  <%= f.input :services, collection: Workspace::SERVICES %>
-  <%= f.input :free_rooms, collection: Workspace::FREEROOMS %>
-  <%= f.input :parking, collection: Workspace::PARKING %>
+      <div>
+          <i class="fa fa-lock" aria-hidden="true"></i>
+          <%= f.input :security, collection: Workspace::SECURITY %>
+        </div>
+          <div>
+             <i class="fa fa-video-camera" aria-hidden="true"></i>
+             <%= f.input :media, collection: Workspace::MEDIA %>
+          </div>
+                <div>
+                  <i class="fa fa-briefcase" aria-hidden="true"></i>
+                 <%= f.input :services, collection: Workspace::SERVICES %>
+              </div>
+            <div><i class="fa fa-bed" aria-hidden="true"></i>
+              <%= f.input :free_rooms, collection: Workspace::FREEROOMS %>
+          </div>
+         <div><i class="fa fa-car" aria-hidden="true"></i>
+         <%= f.input :parking, collection: Workspace::PARKING %>
+      </div>
+
     </div>
 
   <div>
