@@ -1,4 +1,4 @@
-<!-- <p>Pages#owner | Index page for owner</p> -->
+<!-- <p>Pages#owner | Indeworkspace page for owner</p> -->
 
 <div class="banner banner_owner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://kitt.lewagon.com/placeholder/cities/berlin');">
   <div class="banner-content">
@@ -16,18 +16,20 @@
   <div class="container">
     <div class="row">
       <!-- RUBY LOOP for @workspaces -->
-      <% @workspaces.each do |x| %>
+      <% @workspaces.each do |workspace| %>
         <div class="col-xs-12 col-sm-4">
           <!-- CARD -->
-          <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://kitt.lewagon.com/placeholder/cities/lisbon');">
-            <div class="card-category"><%= x.space_type %></div>
-            <div class="card-description">
-              <h2><%= x.name %></h2>
-              <p><%= x.city %>, <%= x.country %></p>
+          <%= link_to workspace do %>
+            <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://kitt.lewagon.com/placeholder/cities/lisbon');">
+              <div class="card-category"><%= workspace.space_type %></div>
+              <div class="card-description">
+                <h2><%= workspace.name %></h2>
+                <p><%= workspace.city %>, <%= workspace.country %></p>
+              </div>
+              <img class="card-user" src="<%= workspace.logo %>">
+              <!-- <a class="card-link" href="#"></a> -->
             </div>
-            <img class="card-user" src="<%= x.logo %>">
-            <a class="card-link" href="#"></a>
-          </div>
+          <% end %>
           <!-- CARD -->
         </div>
       <% end %>
