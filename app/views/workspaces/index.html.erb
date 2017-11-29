@@ -1,26 +1,38 @@
-<% @workspaces.each do |workspace| %>
-  <h2><%= workspace.price_per_day %></h2>
-  <h2><%= workspace.space_type %></h2>
-  <h2><%= workspace.capacity_max %></h2>
-  <h2><%= workspace.environment %></h2>
-  <h2><%= workspace.available_time %></h2>
-  <h2><%= workspace.catering %></h2>
-  <h2><%= workspace.security %></h2>
-  <h2><%= workspace.media %></h2>
-  <h2><%= workspace.free_rooms %></h2>
-  <h2><%= workspace.pet_friendly %></h2>
-  <h2><%= workspace.utilities %></h2>
-  <h2><%= workspace.address %></h2>
-  <h2><%= workspace.near_location %></h2>
-  <h2><%= workspace.contact_number %></h2>
-  <h2><%= workspace.contact_name %></h2>
-  <h2><%= workspace.email %></h2>
+<!-- <p>Pages#owner | Index page for owner</p> -->
 
-<% end %>
+<div class="banner banner_owner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://kitt.lewagon.com/placeholder/cities/berlin');">
+  <div class="banner-content">
+    <h1>Share Space</h1>
+    <p>MORE THAN SIMPLY A PLACE TO PLUG IN YOUR LAPTOP.</p>
+
+    <%= link_to 'Add your workspace', new_owner_workspace_path(current_owner), :class => "btn btn-primary btn-lg" %>
+    <a class="btn btn-primary btn-lg">details</a>
+  </div>
+</div>
 
 
+<div class="card_list_home">
 
+  <div class="container">
+    <div class="row">
+      <!-- RUBY LOOP for @workspaces -->
+      <% @workspaces.each do |x| %>
+        <div class="col-xs-12 col-sm-4">
+          <!-- CARD -->
+          <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://kitt.lewagon.com/placeholder/cities/lisbon');">
+            <div class="card-category"><%= x.space_type %></div>
+            <div class="card-description">
+              <h2><%= x.name %></h2>
+              <p><%= x.city %>, <%= x.country %></p>
+            </div>
+            <img class="card-user" src="<%= x.logo %>">
+            <a class="card-link" href="#"></a>
+          </div>
+          <!-- CARD -->
+        </div>
+      <% end %>
+      <!-- RUBY LOOP for @workspaces -->
+    </div>
+  </div>
 
-
-<h1>Workspaces#index</h1>
-<p>Find me in app/views/workspaces/index.html.erb</p>
+</div>

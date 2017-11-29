@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171128061614) do
+ActiveRecord::Schema.define(version: 20171128052057) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -88,6 +88,10 @@ ActiveRecord::Schema.define(version: 20171128061614) do
     t.text "name"
     t.text "description"
     t.text "address"
+    t.text "city"
+    t.text "country"
+    t.text "latitude"
+    t.text "longitude"
     t.integer "price_per_day"
     t.integer "owner_id"
     t.text "space_type"
@@ -95,21 +99,21 @@ ActiveRecord::Schema.define(version: 20171128061614) do
     t.text "environment"
     t.text "theme"
     t.text "available_time"
-    t.boolean "catering"
-    t.boolean "security"
+    t.text "catering"
+    t.text "security"
     t.text "media"
     t.text "services"
     t.text "free_rooms"
+    t.text "parkings"
     t.text "pet_friendly"
     t.text "utilities"
     t.text "near_location"
-    t.integer "contact_number"
+    t.text "contact_number"
     t.text "contact_name"
     t.text "contact_email"
+    t.text "logo"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.text "title"
-    t.string "photo"
   end
 
 end

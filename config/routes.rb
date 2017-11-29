@@ -15,9 +15,9 @@ Rails.application.routes.draw do
 
   # Root for Owner
   authenticated :owner do
-    root to: 'pages#owner', as: :authenticated_owner
+    root to: 'workspaces#index', as: :authenticated_owner
     resources :owner ,only: [] do
-      resources :workspaces, only: [:new,:create]
+      resources :workspaces, only: [:index, :new,:create]
     end
   end
 
