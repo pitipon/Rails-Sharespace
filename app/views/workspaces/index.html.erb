@@ -11,28 +11,52 @@
 </div>
 
 
-<div class="card_list_home">
+<!-- CARD  -->
 
-  <div class="container">
+<div class="container">
+  <h2 class="text-center">Spaces around the world</h2>
+  <div class="cards">
     <div class="row">
-      <!-- RUBY LOOP for @workspaces -->
+      <!-- CARD PART -->
       <% @workspaces.each do |x| %>
         <div class="col-xs-12 col-sm-4">
-          <!-- CARD -->
-          <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://kitt.lewagon.com/placeholder/cities/lisbon');">
-            <div class="card-category"><%= x.space_type %></div>
-            <div class="card-description">
-              <h2><%= x.name %></h2>
-              <p><%= x.city %>, <%= x.country %></p>
+        <div class="card">
+
+              <!-- CARD: body -->
+              <div class="card-body" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.2)), url('<%= Workspace::TEMP_IMG.sample %>');">
+                <span class="card-category"><%= x.space_type %></span>
+                <div class="card-description">
+                  <h2><%= x.name %></h2>
+                  <p><%= x.city %>, <%= x.country %></p>
+                </div>
+                <img class="card-user avatar avatar-large" src="<%= x.logo %>">
+                <a class="card-link" href="index.html#"></a>
+              </div>
+
+              <!-- CARD: footer -->
+              <div class="card-footer">
+                <p>Posted on 22/11/19</p>
+                <div class="controls">
+                  <a href="index.html#">
+                    <i class="fa fa-star"></i>
+                  </a>
+                </li>
+                <a href="index.html#">
+                  <i class="fa fa-heart"></i>
+                </a>
+              </li>
+              <a href="index.html#">
+                <i class="fa fa-share"></i>
+              </a>
+            </li>
             </div>
-            <img class="card-user" src="<%= x.logo %>">
-            <a class="card-link" href="#"></a>
+            </div>
           </div>
-          <!-- CARD -->
         </div>
       <% end %>
-      <!-- RUBY LOOP for @workspaces -->
+      <!-- CARD PART -->
     </div>
-  </div>
-
 </div>
+</div>
+
+<!-- CARD  -->

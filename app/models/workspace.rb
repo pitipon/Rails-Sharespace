@@ -15,6 +15,8 @@ class Workspace < ApplicationRecord
   UTILITIES = ["Phone", "IP Phone", "Notebook", "Printer", "Scanner", "Copy Machine", "Wireless Hotspot", "Projector", "Pointer", "Maker ", "Paper", "Sofa", "Chair", "TV/Monitor", "Video Conference", "White Board","Air-conditioner", "Heater"]
   NEAR = ["Airport", "Underground", "Downtown", "Beach", "Mountain"]
 
+  TEMP_IMG = ["http://lewagon.github.io/html-css-challenges/10-homepage-with-cards/images/shanghai.jpg","http://lewagon.github.io/html-css-challenges/10-homepage-with-cards/images/rio.jpg","http://lewagon.github.io/html-css-challenges/10-homepage-with-cards/images/berlin.jpg"]
+
   belongs_to :owner
   has_many :comments
   has_many :orders

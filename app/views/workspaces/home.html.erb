@@ -1,4 +1,4 @@
-
+<!-- BANNER -->
 
 <div class="banner banner_owner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://kitt.lewagon.com/placeholder/cities/berlin');">
   <div class="banner-content">
@@ -8,39 +8,71 @@
     <!-- Search component -->
     <div class="container">
       <div class="row">
-        <div class="col-xs-3">
-
-        </div>
+        <div class="col-xs-3"></div>
         <div class="col-xs-6">
 
-              <div class="input-group">
-                <input type="text" class="form-control" placeholder="Search for...">
-                <span class="input-group-btn">
-                  <button class="btn btn-default" type="button">
-                    <span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
-                  </button>
-                </span>
-              </div><!-- /input-group -->
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="Search for...">
+            <span class="input-group-btn">
+              <button class="btn btn-default" type="button">
+                <span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
+              </button>
+            </span>
+          </div>
+          <!-- /input-group -->
         </div>
-        <div class="col-xs-3">
-
-        </div>
+        <div class="col-xs-3"></div>
       </div>
-
-      <div class="row">
-        <div class="col-xs-3">
-
-        </div>
-        <div class="col-xs-6">
-          <%= @workspaces %>
-        </div>
-        <div class="col-xs-3">
-
-        </div>
-      </div>
-
     </div>
-    <!-- Search component -->
-
   </div>
 </div>
+
+<!-- CARD  -->
+
+<div class="container">
+  <h2 class="text-center">What is your next trip?</h2>
+  <div class="cards">
+    <div class="row">
+      <!-- CARD PART -->
+      <% @workspaces.each do |x| %>
+        <div class="col-xs-12 col-sm-4">
+        <div class="card">
+
+              <!-- CARD: body -->
+              <div class="card-body" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.2)), url('<%= Workspace::TEMP_IMG.sample %>');">
+                <span class="card-category"><%= x.space_type %></span>
+                <div class="card-description">
+                  <h2><%= x.name %></h2>
+                  <p><%= x.city %>, <%= x.country %></p>
+                </div>
+                <img class="card-user avatar avatar-large" src="<%= x.logo %>">
+                <a class="card-link" href="index.html#"></a>
+              </div>
+
+              <!-- CARD: footer -->
+              <div class="card-footer">
+                <p>Posted on 22/11/19</p>
+                <div class="controls">
+                  <a href="index.html#">
+                    <i class="fa fa-star"></i>
+                  </a>
+                </li>
+                <a href="index.html#">
+                  <i class="fa fa-heart"></i>
+                </a>
+              </li>
+              <a href="index.html#">
+                <i class="fa fa-share"></i>
+              </a>
+            </li>
+            </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+      <!-- CARD PART -->
+    </div>
+</div>
+</div>
+
+<!-- CARD  -->
