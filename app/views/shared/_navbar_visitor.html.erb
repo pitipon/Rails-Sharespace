@@ -39,9 +39,11 @@
       </div>
     <% else %>
       <!-- Login link (when logged out) -->
-      <%= link_to t(".sign_in", default: "Login as User"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to t(".sign_in", default: "Login as Owner"), new_owner_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
-    <% end %>
+      <%= link_to t(".sign_in", default: " Login as User "), new_user_session_path, class: "btn-medium" %>
+      &nbsp;&nbsp;&nbsp;  
+      <%= link_to t(".sign_in", default: " Login as Owner "), new_owner_session_path, class: "btn-medium" %>
+
+      <% end %>
   </div>
 
   <!-- Dropdown list appearing on mobile only -->
