@@ -30,7 +30,7 @@ end
     latitude: Faker::Address.latitude ,
     longitude: Faker::Address.longitude ,
     price_per_day: rand(10...300),
-    owner: owners.sample ,
+    owner: owners.sample,
     space_type: Workspace::SPACETYPE.sample,
     capacity_max: rand(10...300),
     environment: Workspace::ENVIRONMENT.sample,
@@ -41,7 +41,7 @@ end
     media: Workspace::MEDIA.sample,
     services: Workspace::SERVICES.sample,
     free_rooms: Workspace::FREEROOMS.sample,
-    parkings: Workspace::PARKINGS.sample,
+    parking: Workspace::PARKING.sample,
     pet_friendly: Workspace::PET_FRIENDLY.sample,
     utilities: Workspace::UTILITIES.sample,
     near_location: Workspace::NEAR.sample,
@@ -50,4 +50,64 @@ end
     contact_email: Faker::Internet.email,
     logo: Faker::Company.logo
   )
+  end
+
+  spacetype = Workspace::SPACETYPE
+  spacetype["spacetypes"].each do |s|
+    workspace = Workspace.new(space_type: s[])
+    workspace.save
+  end
+
+  environment = Workspace::ENVIRONMENT
+  environment["environment"].each do |e|
+    workspace = Workspace.new(environment: e[])
+    workspace.save
+  end
+
+  theme = Workspace::THEME
+  theme["theme"].each do |t|
+    workspace = Workspace.new(theme: t[])
+    workspace.save
+  end
+
+  ava_time = Workspace::AVAILABLE_TIME
+  ava_time["available_time"].each do |a|
+    workspace = Workspace.new(available_time: a[])
+    workspace.save
+  end
+
+  catering = Worksapce::CATERING
+  catering["catering"].each do |c|
+    workspace = Workspace.new(catering: c[])
+    workspace.save
+  end
+
+  security = Worksapce::SECURITY
+  security["security"].each do |u|
+    workspace = workspace.new(security: u[])
+    workspace.save
+  end
+
+  media = Worksapce::MEDIA
+  media["media"].each do |m|
+    workspace = worksapce.new(media: m[])
+    worksapce.save
+  end
+
+  service = Workspace::SERVICES
+  service["services"].each do |s|
+    workspace = workspace.new(services: s[])
+    worksapce.save
+  end
+
+  freeroom = Workspace::FREEROOMS
+  freeroom["freeroom"].each do |r|
+    workspace = worksapce.new(:free_rooms f[])
+    workspace.save
+  end
+
+  parking = Workspace.PARKING
+  parking["parking"].each do |p|
+    workspace = workspace.new(:parking p[])
+    workspace.save
 end
