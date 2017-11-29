@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171128052057) do
+ActiveRecord::Schema.define(version: 20171129042704) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -104,7 +104,7 @@ ActiveRecord::Schema.define(version: 20171128052057) do
     t.text "media"
     t.text "services"
     t.text "free_rooms"
-    t.text "parkings"
+    t.text "parking"
     t.text "pet_friendly"
     t.text "utilities"
     t.text "near_location"

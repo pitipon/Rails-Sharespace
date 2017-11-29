@@ -1,5 +1,6 @@
 class WorkspacesController < ApplicationController
-  layout 'owner'
+
+  layout :resolve_layout
   before_action :set_workspace, only: [:show]
   before_action :set_owner, only: [ :new, :create]
 
@@ -7,10 +8,15 @@ class WorkspacesController < ApplicationController
   # GET    /owner/:owner_id/workspaces
   def index
     # @owner
-    # @workspaces 
+    # @workspaces
     @owner = current_owner
     find_workspaces_of_owner
 
+  end
+
+  def home
+    # layout 'user'
+    @workspaces = Workspace.all
   end
 
   # GET /workspaces/1
@@ -58,6 +64,17 @@ private
 
   end
 
+  def resolve_layout
+    case action_name
+    when "index","show","new", "create"  # [:index, :show, :new, :create]
+      "owner"
+    when "home"
+      "user"
+    else
+      "application"
+    end
+  end
+
   def workspace_params
     params.require(:workspace).permit(
       :name,
@@ -65,16 +82,17 @@ private
       # :address,
       # :price_per_day,
       :owner_id,
-      # :space_type,
+      :space_type,
       # :capacity_max,
-      # :environment,
-      # :theme,
-      # :available_time,
-      # :catering,
-      # :security,
-      # :media,
-      # :services,
-      # :free_rooms,
+      :environment,
+      :theme,
+      :available_time,
+      :catering,
+      :security,
+      :media,
+      :services,
+      :free_rooms,
+      :parking,
       # :pet_friendly,
       # :utilities,
       # :near_location,

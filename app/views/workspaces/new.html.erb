@@ -1,5 +1,62 @@
-<h1>Hey <%= @owner.email %>, add your workspace</h1>
+<h1> Let's add your workspace!</h1>
+<div class="container">
+
+
 <%= simple_form_for [@owner, @workspace] do |f| %>
-  <%= f.input :name, placeholder: "space name"%>
-  <%= f.submit "add workspace", class: "btn btn-primary btn-margin" %>
-<% end %>
+  <div><%= f.input :name, placeholder: "Space Name"%></div>
+    <div class="row">
+        <div class="col-sm-6">
+          <div>
+              <i class="fa fa-building-o" aria-hidden="true">
+
+              </i><%= f.input :space_type, collection: Workspace::SPACETYPE %>
+          </div>
+          <div>
+            <i class="fa fa-envira" aria-hidden="true">
+
+            </i><%= f.input :environment, collection: Workspace::ENVIRONMENT %>
+          </div>
+          <div>
+            <i class="fa fa-magic" aria-hidden="true">
+
+            </i><%= f.input :theme, collection: Workspace::THEME %>
+          </div>
+          <div>
+            <i class="fa fa-calendar" aria-hidden="true">
+
+            </i><%= f.input :available_time, collection: Workspace::AVAILABLE_TIME %>
+          </div>
+          <div>
+            <i class="fa fa-cutlery" aria-hidden="true"></i>
+            <%= f.input :catering, collection: Workspace::CATERING %>
+          </div>
+      </div>
+    <div class="col-sm-6">
+      <div>
+          <i class="fa fa-lock" aria-hidden="true"></i>
+          <%= f.input :security, collection: Workspace::SECURITY %>
+        </div>
+          <div>
+             <i class="fa fa-video-camera" aria-hidden="true"></i>
+             <%= f.input :media, collection: Workspace::MEDIA %>
+          </div>
+                <div>
+                  <i class="fa fa-briefcase" aria-hidden="true"></i>
+                 <%= f.input :services, collection: Workspace::SERVICES %>
+              </div>
+            <div><i class="fa fa-bed" aria-hidden="true"></i>
+              <%= f.input :free_rooms, collection: Workspace::FREEROOMS %>
+          </div>
+         <div><i class="fa fa-car" aria-hidden="true"></i>
+         <%= f.input :parking, collection: Workspace::PARKING %>
+      </div>
+
+    </div>
+
+  <div>
+  <%= f.submit "add workspace", class: "btn btn-primary btn-margin text-center" %>
+</div>
+    <% end %>
+  </div>
+</div>
+
