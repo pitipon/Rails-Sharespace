@@ -1,0 +1,55 @@
+<!-- Header with Background Image -->
+    <header class="business-header text-center banner"  style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.2) 0%, rgba(0,36,61,0.5) 10%), url('https://www.bkkmenu.com/uploads/content/img/gallery/highlight/Nikko-Cafe-Nikko-Cafe-3.jpg');">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+
+            <img class="logo-workspace " src="<%= @workspace.logo %>">
+            <h1><%= @workspace.name %></h1>
+            <p><%= @workspace.description %></p>
+
+
+
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Page Content -->
+    <div class="container">
+
+      <div class="row">
+        <div class="col-sm-8">
+          <h2 class="mt-4">What We Do</h2>
+
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A deserunt neque tempore recusandae animi soluta quasi? Asperiores rem dolore eaque vel, porro, soluta unde debitis aliquam laboriosam. Repellat explicabo, maiores!</p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis optio neque consectetur consequatur magni in nisi, natus beatae quidem quam odit commodi ducimus totam eum, alias, adipisci nesciunt voluptate. Voluptatum.</p>
+          <p>
+            <a class="btn btn-primary btn-lg" href="#">Call to Action &raquo;</a>
+          </p>
+        </div>
+        <div class="col-sm-4">
+
+          <h2 class="mt-4">Contact Us</h2>
+
+          <address>
+            <strong><%= @workspace.name %></strong>
+            <br><%= @workspace.address %>
+            <br><%= @workspace.city %>, <%= @workspace.country %>
+            <br>
+          </address>
+          <address>
+            <b>Contact Person</b> <br>
+            <%= @workspace.contact_name %>
+            <br>
+            <b>Phone:</b>
+            <%= @workspace.contact_number %>
+            <br>
+            <b>E-mail:</b>
+            <a href="mailto:#"><%= @workspace.contact_email %></a>
+          </address>
+        </div>
+      </div>
+      <!-- /.row -->
+
+    </div>

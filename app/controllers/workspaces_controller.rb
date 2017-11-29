@@ -69,7 +69,7 @@ private
     case action_name
     when "index_owner","show","new_by_owner", "create_by_owner"  # [:index, :show, :new, :create]
       "owner"
-    when "index_user"
+    when "index_user","show_by_user"
       "user"
     else
       "application"
