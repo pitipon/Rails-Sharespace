@@ -6,7 +6,7 @@
     <p>MORE THAN SIMPLY A PLACE TO PLUG IN YOUR LAPTOP.</p>
 
     <%= link_to 'Add your workspace', owner_new_workspace_path(current_owner), :class => "btn btn-primary btn-lg" %>
-    <a class="btn btn-primary btn-lg">details</a>
+
   </div>
 </div>
 
@@ -24,14 +24,15 @@
         <div class="card">
 
               <!-- CARD: body -->
-              <div class="card-body" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.2)), url('<%= Workspace::TEMP_IMG.sample %>');">
+              <div class="card-body" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.2)), url('<%= Workspace::TEMP_IMG.sample %>');">
                 <span class="card-category"><%= x.space_type %></span>
                 <div class="card-description">
                   <h2><%= x.name %></h2>
                   <p><%= x.city %>, <%= x.country %></p>
                 </div>
                 <img class="card-user avatar avatar-large" src="<%= x.logo %>">
-                <a class="card-link" href="index.html#"></a>
+                <!-- <a class="card-link" href="index.html#"></a> -->
+                <%= link_to 'view', owner_workspaces_show_by_owner_path(current_owner.id, x.id), :class => "card-link" %>
               </div>
 
               <!-- CARD: footer -->

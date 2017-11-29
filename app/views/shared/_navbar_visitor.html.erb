@@ -51,9 +51,8 @@
     <div class="dropdown">
       <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
       <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-        <li><a href="#">Some mobile link</a></li>
-        <li><a href="#">Other one</a></li>
-        <li><a href="#">Other one</a></li>
+        <li><%= link_to t(".sign_in", default: " Login as User "), new_user_session_path %></li>
+        <li><%= link_to t(".sign_in", default: " Login as Owner "), new_owner_session_path%></li>
       </ul>
     </div>
   </div>

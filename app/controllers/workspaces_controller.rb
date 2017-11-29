@@ -26,6 +26,12 @@ class WorkspacesController < ApplicationController
     @workspace = Workspace.find(params[:id])
   end
 
+  # owner_workspaces_show_by_owner GET    /owner/:owner_id/workspaces/:id(.:format)          workspaces#show_by_owner
+  def show_by_owner
+    # @workspace
+    @workspace = Workspace.find(params[:id])
+  end
+
   # owner_new_workspace          GET    /owner/:owner_id/workspaces/new_by_owner      workspaces#new_by_owner
   def new_by_owner
     # use @owner for simple_form_for
@@ -67,7 +73,7 @@ private
 
   def resolve_layout
     case action_name
-    when "index_owner","show","new_by_owner", "create_by_owner"  # [:index, :show, :new, :create]
+    when "index_owner","show_by_owner","new_by_owner", "create_by_owner"  # [:index, :show, :new, :create]
       "owner"
     when "index_user","show_by_user"
       "user"

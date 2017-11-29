@@ -22,10 +22,11 @@ Rails.application.routes.draw do
   authenticated :owner do
     root to: 'workspaces#index_owner', as: :authenticated_owner
     resources :owner ,only: [] do
-      
+
       get '/workspaces', to: 'workspaces#index_owner'
       post '/workspaces', to: 'workspaces#create_by_owner' , as: 'create_new_workspace'
       get '/workspaces/new_by_owner', to: 'workspaces#new_by_owner', as: 'new_workspace'
+      get '/workspaces/:id', to: 'workspaces#show_by_owner', as: 'workspaces_show_by_owner'
     end
   end
 
