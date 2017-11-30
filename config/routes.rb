@@ -13,8 +13,32 @@ Rails.application.routes.draw do
     root to: 'workspaces#index_user', as: :authenticated_user
 
       resources :user, only: [] do
+        # For workspaces
         get '/workspaces', to: 'workspaces#index_user'
         get '/workspaces/:id', to: 'workspaces#show_by_user', as: 'workspaces_show_by_user'
+
+
+        resources :workspaces, only: [] do
+
+          # create
+          get '/orders/new_by_user', to: 'orders#new_by_user', as: 'orders_new_by_user'
+          post '/orders', to: 'orders#create_by_user', as: 'orders_create_by_user'
+        end
+
+        ## For orders
+        # show
+        get '/orders/:id', to: 'orders#show_by_user', as: 'orders_show_by_user'
+        get '/orders', to: 'orders#show_all_by_user', as: 'orders_show_all_by_user'
+
+        # change state (request -> 'pending') (reject -> 'owner reject') (confirm -> 'owner ok')
+        resources :orders, only: [] do
+          namespace :actions do
+            post :approve
+            post :reject
+            post :confirm
+          end
+        end
+
       end
   end
 
@@ -34,13 +58,13 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
 
-  resources :orders, except: [:new, :create] do
-    namespace :actions do
-      post :approve
-      post :reject
-      post :confirm
-    end
-  end
+  # resources :orders, except: [:new, :create] do
+  #   namespace :actions do
+  #     post :approve
+  #     post :reject
+  #     post :confirm
+  #   end
+  # end
 
 
 
