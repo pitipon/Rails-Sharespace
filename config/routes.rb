@@ -55,7 +55,9 @@ Rails.application.routes.draw do
   end
 
   # Root for Visitor
-  root to: 'pages#home'
+  get '/workspaces', to: 'workspaces#index'
+  get '/workspaces/:id', to: 'workspaces#show', as: 'workspaces_show'
+  root to: 'workspaces#index'
 
 
   # resources :orders, except: [:new, :create] do
