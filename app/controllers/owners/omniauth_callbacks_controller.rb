@@ -1,5 +1,5 @@
 class Owners::OmniauthCallbacksController < Devise::OmniauthCallbacksController
-  layout 'owner'
+  
   # You should configure your model like this:
   # devise :omniauthable, omniauth_providers: [:twitter]
 

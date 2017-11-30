@@ -1,5 +1,5 @@
 class Owners::PasswordsController < Devise::PasswordsController
-  layout 'owner'
+  
   # GET /resource/password/new
   # def new
   #   super

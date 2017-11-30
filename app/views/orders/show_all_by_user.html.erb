@@ -1,7 +1,7 @@
 <h1>All Booking Status</h1>
       <div class="container">
 
-        <% @orders.each_with_index do |x,i| %>
+        <% @orders.to_enum.with_index.reverse_each do |x,i| %>
         <div class="row">
           <div class="col">
             <div class="product">
