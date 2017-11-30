@@ -1,8 +1,9 @@
 class OrdersController < ApplicationController
   layout :resolve_layout
 
+  before_action :find_order, only: [:show_by_user]
   before_action :set_workspace, only: [:new_by_user, :create_by_user]
-  before_action :set_user, only: [:new_by_user, :create_by_user]
+  before_action :set_user, only: [:new_by_user, :create_by_user, :show_by_user, :show_all_by_user]
 
 
 
@@ -19,7 +20,7 @@ class OrdersController < ApplicationController
     @order = Order.new
     @order.start_date = Date.parse(params[:order][:start_date])
     @order.end_date = Date.parse(params[:order][:end_date])
-    @order.state = "In progress"
+    @order.state = "Booking Success"
     @order.remark = params[:order][:remark]
     @order.user = @user
     @order.workspace = @workspace
@@ -32,6 +33,16 @@ class OrdersController < ApplicationController
     p @order
     p "--------------------------------------------------------"
 
+  end
+
+  def show_by_user
+    # @user, @order
+  end
+
+  def show_all_by_user
+    # @user
+    @orders = Order.all
+    
   end
 
   # def index
@@ -105,11 +116,16 @@ class OrdersController < ApplicationController
     @owner = Owner.find(params[:owner_id])
   end
 
+  # find order by id
+  def find_order
+    @order = Order.find(params[:id])
+  end
+
   def resolve_layout
     case action_name
     when "show_by_owner"  # [:index, :show, :new, :create]
       "owner"
-    when "new_by_user"
+    when "new_by_user","show_by_user","show_all_by_user"
       "user"
     else
       "application"

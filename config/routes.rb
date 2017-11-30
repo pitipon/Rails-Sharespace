@@ -31,13 +31,13 @@ Rails.application.routes.draw do
         get '/orders', to: 'orders#show_all_by_user', as: 'orders_show_all_by_user'
 
         # change state (request -> 'pending') (reject -> 'owner reject') (confirm -> 'owner ok')
-        resources :orders, only: [] do
-          namespace :actions do
-            post :request
-            post :reject
-            post :confirm
-          end
-        end
+        # resources :orders, only: [] do
+        #   namespace :actions do
+        #     post :request
+        #     post :reject
+        #     post :confirm
+        #   end
+        # end
 
       end
   end
