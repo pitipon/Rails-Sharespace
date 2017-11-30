@@ -33,7 +33,7 @@ Rails.application.routes.draw do
         # change state (request -> 'pending') (reject -> 'owner reject') (confirm -> 'owner ok')
         resources :orders, only: [] do
           namespace :actions do
-            post :approve
+            post :request
             post :reject
             post :confirm
           end
