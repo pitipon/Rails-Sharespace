@@ -1,14 +1,37 @@
 class OrdersController < ApplicationController
   layout :resolve_layout
 
-  before_action :set_workspace, only: [:new_by_user]
-  before_action :set_user, only: [:new_by_user]
-  
+  before_action :set_workspace, only: [:new_by_user, :create_by_user]
+  before_action :set_user, only: [:new_by_user, :create_by_user]
+
 
 
   def new_by_user
     # @user
     # @workspace
+     @order = @workspace.orders.new
+  end
+
+  def create_by_user
+    p "--------------------------------------------------------"
+    p params
+    p params[:order][:start_date]
+    @order = Order.new
+    @order.start_date = Date.parse(params[:order][:start_date])
+    @order.end_date = Date.parse(params[:order][:end_date])
+    @order.state = "In progress"
+    @order.remark = params[:order][:remark]
+    @order.user = @user
+    @order.workspace = @workspace
+      if @order.save
+        redirect_to user_workspaces_path(@user), notice: 'Booking was successfully created.'
+        p "SAVEEEEEEEEEEEEEEEEEEEEEE!"
+      else
+        render :new_by_user
+      end
+    p @order
+    p "--------------------------------------------------------"
+
   end
 
   # def index
