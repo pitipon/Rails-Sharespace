@@ -10,18 +10,23 @@ Rails.application.routes.draw do
 
   # Root for User
   authenticated :user do
-    root to: 'workspaces#home', as: :authenticated_user
+    root to: 'workspaces#index_user', as: :authenticated_user
 
       resources :user, only: [] do
-        get '/workspaces', to: 'workspaces#home', as: 'workspaces'
+        get '/workspaces', to: 'workspaces#index_user'
+        get '/workspaces/:id', to: 'workspaces#show_by_user', as: 'workspaces_show_by_user'
       end
   end
 
   # Root for Owner
   authenticated :owner do
-    root to: 'workspaces#index', as: :authenticated_owner
+    root to: 'workspaces#index_owner', as: :authenticated_owner
     resources :owner ,only: [] do
-      resources :workspaces, only: [:index, :new,:create]
+
+      get '/workspaces', to: 'workspaces#index_owner'
+      post '/workspaces', to: 'workspaces#create_by_owner' , as: 'create_new_workspace'
+      get '/workspaces/new_by_owner', to: 'workspaces#new_by_owner', as: 'new_workspace'
+      get '/workspaces/:id', to: 'workspaces#show_by_owner', as: 'workspaces_show_by_owner'
     end
   end
 

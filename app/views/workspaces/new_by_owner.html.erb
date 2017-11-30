@@ -2,7 +2,7 @@
 <div class="container">
 
 
-<%= simple_form_for [@owner, @workspace] do |f| %>
+<%= simple_form_for [@owner, @workspace], :url => url_for(:action => 'create_by_owner', :controller => 'workspaces'), :method => 'post' do |f| %>
   <div><%= f.input :name, placeholder: "Space Name"%></div>
     <div class="row">
         <div class="col-sm-6">
@@ -59,4 +59,3 @@
     <% end %>
   </div>
 </div>
-

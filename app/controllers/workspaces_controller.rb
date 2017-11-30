@@ -2,11 +2,11 @@ class WorkspacesController < ApplicationController
 
   layout :resolve_layout
   before_action :set_workspace, only: [:show]
-  before_action :set_owner, only: [ :new, :create]
+  before_action :set_owner, only: [ :new_by_owner, :create_by_owner]
 
 
   # GET    /owner/:owner_id/workspaces
-  def index
+  def index_owner
     # @owner
     # @workspaces
     @owner = current_owner
@@ -14,25 +14,32 @@ class WorkspacesController < ApplicationController
 
   end
 
-  def home
+  # GET   /user/:user_id/workspaces
+  def index_user
     # layout 'user'
     @workspaces = Workspace.all
   end
 
-  # GET /workspaces/1
-  def show
+  # user_workspaces_show_by_user     GET    /user/:user_id/workspaces/:id(.:format)     workspaces#show_by_user
+  def show_by_user
     # @workspace
     @workspace = Workspace.find(params[:id])
   end
 
-  # GET    /owner/:owner_id/workspaces/new
-  def new
+  # owner_workspaces_show_by_owner GET    /owner/:owner_id/workspaces/:id(.:format)          workspaces#show_by_owner
+  def show_by_owner
+    # @workspace
+    @workspace = Workspace.find(params[:id])
+  end
+
+  # owner_new_workspace          GET    /owner/:owner_id/workspaces/new_by_owner      workspaces#new_by_owner
+  def new_by_owner
     # use @owner for simple_form_for
     @workspace = Workspace.new
   end
 
-  # POST   /owner/:owner_id/workspaces
-  def create
+  # owner_create_new_workspace   POST   /owner/:owner_id/workspaces           workspaces#create_by_owner
+  def create_by_owner
     # we need @owner
     @workspace = Workspace.new(workspace_params)
     @workspace.owner = @owner
@@ -66,9 +73,9 @@ private
 
   def resolve_layout
     case action_name
-    when "index","show","new", "create"  # [:index, :show, :new, :create]
+    when "index_owner","show_by_owner","new_by_owner", "create_by_owner"  # [:index, :show, :new, :create]
       "owner"
-    when "home"
+    when "index_user","show_by_user"
       "user"
     else
       "application"
