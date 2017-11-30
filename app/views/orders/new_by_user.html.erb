@@ -1,3 +1,55 @@
 
 <%= @user.email %>
 <%= @workspace.name %>
+
+<!-- Date Picker -->
+<div class="container">
+  <div class="row">
+
+    <div class='col-xs-6'>
+        <div class="form-group">
+            <div class='input-group date' id='datetimepicker6'>
+                <input type='text' class="form-control" />
+                <span class="input-group-addon">
+                    <!-- <span class="glyphicon glyphicon-calendar"></span> -->
+                    From
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <div class='col-xs-6'>
+        <div class="form-group">
+            <div class='input-group date' id='datetimepicker7'>
+                <input type='text' class="form-control" />
+                <span class="input-group-addon">
+                    <!-- <span class="glyphicon glyphicon-calendar"></span> -->
+                    To
+                </span>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-2"></div>
+  </div>
+</div>
+<%= content_for(:after_js) do %>
+  <script type="text/javascript">
+      $(function () {
+          $('#datetimepicker6').datetimepicker({
+              format: 'dddd , Do MMMM YYYY'
+          });
+          $('#datetimepicker7').datetimepicker({
+              format: 'dddd , Do MMMM YYYY',
+              useCurrent: false //Important! See issue #1075
+          });
+          $("#datetimepicker6").on("dp.change", function (e) {
+              $('#datetimepicker7').data("DateTimePicker").minDate(e.date);
+          });
+          $("#datetimepicker7").on("dp.change", function (e) {
+              $('#datetimepicker6').data("DateTimePicker").maxDate(e.date);
+          });
+
+      });
+  </script>
+  <% end %>
+<!-- Date Picker -->
