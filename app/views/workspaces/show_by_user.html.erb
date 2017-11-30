@@ -37,7 +37,8 @@
           <div class="box-price">
             <h2>Price: $<%= @workspace.price_per_day %>/Day</h2>
             <br>
-            <a class="btn btn-primary btn-lg" href="#">Booking with us  &raquo;</a>
+            <!-- <a class="btn btn-primary btn-lg" href="#">Booking with us  &raquo;</a> -->
+            <%= link_to 'Booking >', user_workspace_orders_new_by_user_path(current_user.id, @workspace.id), :class => "btn btn-primary btn-md" %>
             <br>
           </div>
 
