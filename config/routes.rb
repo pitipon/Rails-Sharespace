@@ -18,26 +18,26 @@ Rails.application.routes.draw do
         get '/workspaces/:id', to: 'workspaces#show_by_user', as: 'workspaces_show_by_user'
 
 
-        resources :workspaces, only: [] do
+            resources :workspaces, only: [] do
 
-          # create
-          get '/orders/new_by_user', to: 'orders#new_by_user', as: 'orders_new_by_user'
-          post '/orders', to: 'orders#create_by_user', as: 'orders_create_by_user'
-        end
+              # create
+              get '/orders/new_by_user', to: 'orders#new_by_user', as: 'orders_new_by_user'
+              post '/orders', to: 'orders#create_by_user', as: 'orders_create_by_user'
+            end
 
-        ## For orders
-        # show
-        get '/orders/:id', to: 'orders#show_by_user', as: 'orders_show_by_user'
-        get '/orders', to: 'orders#show_all_by_user', as: 'orders_show_all_by_user'
+            ## For orders
+            # show
+            get '/orders/:id', to: 'orders#show_by_user', as: 'orders_show_by_user'
+            get '/orders', to: 'orders#show_all_by_user', as: 'orders_show_all_by_user'
 
-        # change state (request -> 'pending') (reject -> 'owner reject') (confirm -> 'owner ok')
-        # resources :orders, only: [] do
-        #   namespace :actions do
-        #     post :request
-        #     post :reject
-        #     post :confirm
-        #   end
-        # end
+            # change state (request -> 'pending') (reject -> 'owner reject') (confirm -> 'owner ok')
+            # resources :orders, only: [] do
+            #   namespace :actions do
+            #     post :request
+            #     post :reject
+            #     post :confirm
+            #   end
+            # end
 
       end
   end
@@ -51,7 +51,20 @@ Rails.application.routes.draw do
       post '/workspaces', to: 'workspaces#create_by_owner' , as: 'create_new_workspace'
       get '/workspaces/new_by_owner', to: 'workspaces#new_by_owner', as: 'new_workspace'
       get '/workspaces/:id', to: 'workspaces#show_by_owner', as: 'workspaces_show_by_owner'
+
+
+      ## For orders
+      # show
+      get '/orders/:id', to: 'orders#show_by_owner', as: 'orders_show_by_owner'
+      get '/orders', to: 'orders#show_all_by_owner', as: 'orders_show_all_by_owner'
+
+
+
     end
+
+
+
+
   end
 
   # Root for Visitor
