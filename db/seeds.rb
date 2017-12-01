@@ -7,11 +7,19 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'faker'
 
+User.destroy_all
 Owner.destroy_all
 Workspace.destroy_all
+Order.destroy_all
 # User.destroy_all
 
 owners = []
+users = []
+
+Owner.create!(
+    email: "admin@gmail.com",
+    password: 123123
+  )
 
 10.times do
   owners << Owner.create!(
@@ -19,6 +27,18 @@ owners = []
     password: 123123
   )
 end
+
+User.create!(
+    email: "admin@gmail.com",
+    password: 123123
+  )
+
+10.times do
+    users << User.create!(
+      email: Faker::Internet.email,
+      password: 123123
+    )
+  end
 
 banner_photos_array = [
   "http://www.bespokesf.co/Coworking.png",
@@ -189,6 +209,7 @@ real_address = [
 
 
 100.times do
+  random_img = Workspace::TEMP_IMG.sample
   Workspace.create!(
     name: real_space_name.sample,
     description: real_desc_array.sample,
@@ -198,7 +219,7 @@ real_address = [
     latitude: Faker::Address.latitude ,
     longitude: Faker::Address.longitude ,
     price_per_day: rand(10...30),
-    owner: owners.sample,
+    owner: Owner.all.sample,
     space_type: Workspace::SPACETYPE.sample,
     capacity_max: rand(10...300),
     environment: Workspace::ENVIRONMENT.sample,
@@ -218,7 +239,18 @@ real_address = [
     contact_email: Faker::Internet.email,
     logo: Faker::Company.logo,
     attr: real_attr_array.sample,
-    banner_image_url: banner_photos_array.sample,
-    cover_image_url: cover_image_array.sample
+    banner_image_url: random_img,
+    cover_image_url: random_img
   )
   end
+
+100.times do
+  Order.create!(
+    remark: Faker::StarWars.quote,
+    user: User.all.sample,
+    workspace: Workspace.all.sample,
+    start_date: Date.parse(Faker::Date.forward(2).to_s),
+    end_date: Date.parse(Faker::Date.forward(30).to_s),
+    state: "Booking Success"
+  )
+end

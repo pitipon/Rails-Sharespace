@@ -55,7 +55,8 @@
         </div>
 
           <p>
-            <a class="btn btn-primary btn-sm" href="#">Booking &raquo;</a>
+            <%= link_to 'Booking >', user_workspace_orders_new_by_user_path(current_user.id, @workspace.id), :class => "btn btn-primary btn-sm" %>
+
           </p>
         </div>
 
