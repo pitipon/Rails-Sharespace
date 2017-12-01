@@ -17,7 +17,16 @@ class WorkspacesController < ApplicationController
   end
   # ###################
 
+
+  def index
+    @workspaces = Workspace.all
+
+    render :index_user
+  end
+
+
   ##USER Actions ######
+
   # GET   /user/:user_id/workspaces
   def index_user
     # layout 'user'
@@ -28,6 +37,8 @@ class WorkspacesController < ApplicationController
   def show_by_user
     # @workspace
     @workspace = Workspace.find(params[:id])
+
+    @markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, autolink: true, tables: true)
   end
   # ###################
 
@@ -46,6 +57,8 @@ class WorkspacesController < ApplicationController
   def show_by_owner
     # @workspace
     @workspace = Workspace.find(params[:id])
+
+    @markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, autolink: true, tables: true)
   end
 
   # owner_new_workspace          GET    /owner/:owner_id/workspaces/new_by_owner      workspaces#new_by_owner
@@ -62,7 +75,6 @@ class WorkspacesController < ApplicationController
     @workspace.save
     redirect_to root_path, notice: 'Workspace was successfully created.'
   end
-
 
 
 
