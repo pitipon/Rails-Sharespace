@@ -32,6 +32,8 @@ Rails.application.routes.draw do
 
   # Root for Visitor
   root to: 'pages#home'
+  # resources :workspaces
+
 
 
   resources :orders, except: [:new, :create] do

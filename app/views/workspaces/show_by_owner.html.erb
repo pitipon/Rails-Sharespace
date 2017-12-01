@@ -4,7 +4,7 @@
         <div class="row">
           <div class="col-lg-12">
 
-            <img class="logo-workspace " src="<%= @workspace.logo %>">
+
             <h1><%= @workspace.name %></h1>
             <p><%= @workspace.description %></p>
 
@@ -20,12 +20,36 @@
 
       <div class="row">
         <div class="col-sm-8">
-          <h2 class="mt-4">What We Do</h2>
+          <h2 class="mt-4">Amenities & Services</h2>
+          <%= @markdown.render(@workspace.attr).html_safe %>
 
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A deserunt neque tempore recusandae animi soluta quasi? Asperiores rem dolore eaque vel, porro, soluta unde debitis aliquam laboriosam. Repellat explicabo, maiores!</p>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis optio neque consectetur consequatur magni in nisi, natus beatae quidem quam odit commodi ducimus totam eum, alias, adipisci nesciunt voluptate. Voluptatum.</p>
-          
+          <div class="Amenities-wrapper">
+          <div class ="wlp-amenity-image-h5">
+            <div class="wlp-amenity-image" style="background-image: url(https://picture.liquidspace.com/index/699094f6-7332-40a8-989b-83ebd133f07d)"></div>
+            <span>WiFi</span>
+          </div>
+
+          <div class ="wlp-amenity-image-h5">
+            <div class="wlp-amenity-image" style="background-image: url(https://picture.liquidspace.com/index/77971980-b2ac-430d-a256-9e4e27423b83)"></div>
+            <span>Furnished</span>
+          </div>
+
+          <div class="wlp-amenity-image-h5">
+            <div class="wlp-amenity-image" style="background-image: url(https://picture.liquidspace.com/index/84eed06b-7c79-4dc4-ad2b-ecd1a9cd0698)"></div>
+            <span class="xpp-amenity-with-description">Coffee/Tea</span>
+          </div>
+
+          <div class="wlp-amenity-image-h5">
+            <div class="wlp-amenity-image" style="background-image: url(https://picture.liquidspace.com/index/69e3abc7-53d9-4a3b-9319-a24718b2152c)"></div>
+            <span>Filtered Water</span>
+          </div>
+
+          <div class="wlp-amenity-image-h5">
+            <div class="wlp-amenity-image" style="background-image: url(https://picture.liquidspace.com/index/3d707afb-1997-4767-a16f-140bd092431d)"></div>
+            <span>Parking</span>
+          </div>
         </div>
+      </div>
 
 
 
@@ -43,11 +67,10 @@
           <address>
             <strong><%= @workspace.name %></strong>
             <br><%= @workspace.address %>
-            <br><%= @workspace.city %>, <%= @workspace.country %>
             <br>
           </address>
           <address>
-            <b>Contact Person</b> <br>
+            <b>Point of Contact</b> <br>
             <%= @workspace.contact_name %>
             <br>
             <b>Phone:</b>
@@ -56,6 +79,7 @@
             <b>E-mail:</b>
             <a href="mailto:#"><%= @workspace.contact_email %></a>
           </address>
+          <%= image_tag "https://maps.googleapis.com/maps/api/staticmap?key=AIzaSyB7SSgOvYb3xo940zLJNSzU3ICtD5yQslg&zoom=15&size=400x300&sensor=false&maptype=roadmap&markers=color:red|#{@workspace.address}" %>
         </div>
       </div>
       <!-- /.row -->
@@ -66,7 +90,7 @@
 
 
     <!-- Gmaps js: building the map -->
-<script>
+<!-- <script>
   function initMap() {
     // Create a map object and specify the DOM element for display.
     var map = new google.maps.Map(document.getElementById('map'), {
@@ -78,11 +102,11 @@
       zoom: 8
     });
   }
-</script>
+</script> -->
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <!-- Gmaps JavaScript -->
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAsnmPj0gjQ-azvfUbyFmYsHiafwO-Abzc&callback=initMap">
-</script>
+<!-- <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAsnmPj0gjQ-azvfUbyFmYsHiafwO-Abzc&callback=initMap">
+</script> -->
