@@ -1,5 +1,18 @@
+.background{
+    height: 100%!important;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
 .banner_owner {
   height: 50vh !important;
+}
+
+.faded{
+  opacity: .8;
+  color: #DDDDDD;
 }
 
 .container-fluid {
@@ -7,16 +20,26 @@
   text-align: center;
 }
 
-
-h1 {
-    font-size: 200%;
-    text-align: center;
-  }
-.btn-margin{
-  border-radius: 10px;
-  display: flex;
-  text-align: center;
-  justify-content: center;
-  margin-bottom: 15px;
+.namespace{
+  opacity: .8;
+  color: #DDDDDD;
 }
 
+h1 {
+    font-size: 300%;
+    text-align: center;
+    color: #DDDDDD;
+    font-weight: bold;
+  }
+.row{
+    opacity: .8;
+    color: #DDDDDD;
+}
+
+// ---------------
+.btn-placment
+{
+  text-align: center;
+  margin-bottom: 10px;
+
+}

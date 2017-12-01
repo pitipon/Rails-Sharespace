@@ -85,12 +85,12 @@ private
   def workspace_params
     params.require(:workspace).permit(
       :name,
-      # :description,
-      # :address,
-      # :price_per_day,
+      :description,
+      :address,
+      :price_per_day,
       :owner_id,
       :space_type,
-      # :capacity_max,
+      :capacity_max,
       :environment,
       :theme,
       :available_time,
@@ -100,12 +100,12 @@ private
       :services,
       :free_rooms,
       :parking,
-      # :pet_friendly,
-      # :utilities,
+      :pet_friendly,
+      :utilities,
       # :near_location,
-      # :contact_number,
-      # :contact_name,
-      # :contact_email
+      :contact_number,
+      :contact_name,
+      :contact_email
     )
   end
 
