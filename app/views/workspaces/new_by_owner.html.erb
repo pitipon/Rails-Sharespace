@@ -1,61 +1,62 @@
-<h1> Let's add your workspace!</h1>
-<div class="container">
 
+<div class="background" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('http://ofsbrandssitesbucket.s3.amazonaws.com/s3fs-public/styles/product_slideshow/public/OFS_eleven_workspace_benching_wr_03.jpg?itok=VPlYjLtT');">
+  <div class="container">
+  <h1> Let's add your workspace!</h1>
 
-<%= simple_form_for [@owner, @workspace], :url => url_for(:action => 'create_by_owner', :controller => 'workspaces'), :method => 'post' do |f| %>
-  <div><%= f.input :name, placeholder: "Space Name"%></div>
-    <div class="row">
-        <div class="col-sm-6">
-          <div>
-              <i class="fa fa-building-o" aria-hidden="true">
-
-              </i><%= f.input :space_type, collection: Workspace::SPACETYPE %>
-          </div>
-          <div>
-            <i class="fa fa-envira" aria-hidden="true">
-
-            </i><%= f.input :environment, collection: Workspace::ENVIRONMENT %>
-          </div>
-          <div>
-            <i class="fa fa-magic" aria-hidden="true">
-
-            </i><%= f.input :theme, collection: Workspace::THEME %>
-          </div>
-          <div>
-            <i class="fa fa-calendar" aria-hidden="true">
-
-            </i><%= f.input :available_time, collection: Workspace::AVAILABLE_TIME %>
-          </div>
-          <div>
-            <i class="fa fa-cutlery" aria-hidden="true"></i>
-            <%= f.input :catering, collection: Workspace::CATERING %>
-          </div>
-      </div>
-    <div class="col-sm-6">
-      <div>
-          <i class="fa fa-lock" aria-hidden="true"></i>
-          <%= f.input :security, collection: Workspace::SECURITY %>
+  <%= simple_form_for [@owner, @workspace], :url => url_for(:action => 'create_by_owner', :controller => 'workspaces'), :method => 'post' do |f| %>
+    <div class="namespace"><%= f.input :name, placeholder: "Space Name", label: "Workspace name" %></div>
+      <div class="row" >
+        <div class="col-sm-4">
+          <div><%= f.input :contact_name, placeholder: "What's your name?" %></div>
+            <div><%= f.input :contact_email, placeholder: "Email" %></div>
+              <div><%= f.input :contact_number,placeholder: "Phone number", class: "input-sm" %></div>
         </div>
-          <div>
-             <i class="fa fa-video-camera" aria-hidden="true"></i>
-             <%= f.input :media, collection: Workspace::MEDIA %>
+
+    <div class="col-sm-4 col-md-offset-2">
+      <div class="margins">
+        <div><%= f.input :address, placeholder: "Where's your workspace?" %></div>
+          <div><%= f.input :description, placeholder: "Tell me about your workspace" %></div>
+            <div><%= f.input :price_per_day, placeholder:"Enter your price" %></div>
           </div>
-                <div>
-                  <i class="fa fa-briefcase" aria-hidden="true"></i>
-                 <%= f.input :services, collection: Workspace::SERVICES %>
-              </div>
-            <div><i class="fa fa-bed" aria-hidden="true"></i>
-              <%= f.input :free_rooms, collection: Workspace::FREEROOMS %>
-          </div>
-         <div><i class="fa fa-car" aria-hidden="true"></i>
-         <%= f.input :parking, collection: Workspace::PARKING %>
+        </div>
       </div>
+    <div class="faded">
+      <div class="col-sm-6">
+        <div><i class="fa fa-building-o" aria-hidden="true"></i>
+            <%= f.input :space_type, collection: Workspace::SPACETYPE %></div>
+          <div><i class="fa fa-envira" aria-hidden="true">
+              </i><%= f.input :environment, collection: Workspace::ENVIRONMENT %></div>
+            <div><i class="fa fa-magic" aria-hidden="true">
+                </i><%= f.input :theme, collection: Workspace::THEME %></div>
+              <div><i class="fa fa-calendar" aria-hidden="true">
+                  </i><%= f.input :available_time, collection: Workspace::AVAILABLE_TIME %></div>
+                <div><i class="fa fa-cutlery" aria-hidden="true"></i>
+                    <%= f.input :catering, collection: Workspace::CATERING %></div>
+                  <div class="dropup"><i class="fa fa-wrench" aria-hidden="true"></i>
+                    <%= f.input :utilities, collection: Workspace::UTILITIES %></div>
+        </div>
+    <div class="col-sm-6">
+      <div><i class="fa fa-lock" aria-hidden="true"></i>
+        <%= f.input :security, collection: Workspace::SECURITY %></div>
+        <div><i class="fa fa-video-camera" aria-hidden="true"></i>
+          <%= f.input :media, collection: Workspace::MEDIA %></div>
+          <div><i class="fa fa-briefcase" aria-hidden="true"></i>
+            <%= f.input :services, collection: Workspace::SERVICES %></div>
+            <div><i class="fa fa-bed" aria-hidden="true"></i>
+              <%= f.input :free_rooms, collection: Workspace::FREEROOMS %></div>
+              <div><i class="fa fa-car" aria-hidden="true"></i>
+              <%= f.input :parking, collection: Workspace::PARKING %></div>
+                <div><i class="fa fa-paw" aria-hidden="true"></i>
+               <label class="checkbox-inline"></label>
+                <%= f.input :pet_friendly, collection: Workspace::PET_FRIENDLY, label: "Pets" %>
+               </div>
 
+      </div>
+  </div>
+        <div class="btn-placment">
+        <%= f.submit "add workspace", class: "btn btn-primary" %>
+        </div>
+      <% end %>
     </div>
-
-  <div>
-  <%= f.submit "add workspace", class: "btn btn-primary btn-margin text-center" %>
-</div>
-    <% end %>
   </div>
 </div>
