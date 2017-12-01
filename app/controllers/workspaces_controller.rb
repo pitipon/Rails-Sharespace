@@ -5,15 +5,19 @@ class WorkspacesController < ApplicationController
   before_action :set_owner, only: [ :new_by_owner, :create_by_owner]
 
 
-  # GET    /owner/:owner_id/workspaces
-  def index_owner
-    # @owner
-    # @workspaces
-    @owner = current_owner
-    find_workspaces_of_owner
+  ##VISITOR Actions####
 
+  def index
+    @workspaces = Workspace.all
   end
 
+  def show
+    # @workspace
+    @workspace = Workspace.find(params[:id])
+  end
+  # ###################
+
+  ##USER Actions ######
   # GET   /user/:user_id/workspaces
   def index_user
     # layout 'user'
@@ -24,6 +28,18 @@ class WorkspacesController < ApplicationController
   def show_by_user
     # @workspace
     @workspace = Workspace.find(params[:id])
+  end
+  # ###################
+
+
+  ##OWNER Actions######
+
+  # GET    /owner/:owner_id/workspaces
+  def index_owner
+    # @owner
+    # @workspaces
+    @owner = current_owner
+    find_workspaces_of_owner
   end
 
   # owner_workspaces_show_by_owner GET    /owner/:owner_id/workspaces/:id(.:format)          workspaces#show_by_owner
@@ -45,7 +61,6 @@ class WorkspacesController < ApplicationController
     @workspace.owner = @owner
     @workspace.save
     redirect_to root_path, notice: 'Workspace was successfully created.'
-
   end
 
 
