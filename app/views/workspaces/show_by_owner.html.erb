@@ -4,7 +4,7 @@
         <div class="row">
           <div class="col-lg-12">
 
-
+            <!-- <img class="logo-workspace " src="<%= @workspace.logo %>" --><!-- > -->
             <h1><%= @workspace.name %></h1>
             <p><%= @workspace.description %></p>
 
@@ -21,35 +21,98 @@
       <div class="row">
         <div class="col-sm-8">
           <h2 class="mt-4">Amenities & Services</h2>
+         <!--  <%= @markdown.render(@workspace.space_type).html_safe %>
+          <%= @markdown.render(@workspace.capacity_max.to_s).html_safe %>
+          <%= @markdown.render(@workspace.environment).html_safe %>
+          <%= @markdown.render(@workspace.theme).html_safe %>
+          <%= @markdown.render(@workspace.available_time).html_safe %> -->
           <%= @markdown.render(@workspace.attr).html_safe %>
 
-          <div class="Amenities-wrapper">
+          <br><br>
+        <div class="Amenities-wrapper">
           <div class ="wlp-amenity-image-h5">
-            <div class="wlp-amenity-image" style="background-image: url(https://picture.liquidspace.com/index/699094f6-7332-40a8-989b-83ebd133f07d)"></div>
-            <span>WiFi</span>
+
+            <img src="https://picture.liquidspace.com/index/699094f6-7332-40a8-989b-83ebd133f07d" alt="" width="30" height="30">
+            <span>WiFi : <%= ["50","100","150","300"].sample %>MB/s</span>
+
           </div>
 
           <div class ="wlp-amenity-image-h5">
-            <div class="wlp-amenity-image" style="background-image: url(https://picture.liquidspace.com/index/77971980-b2ac-430d-a256-9e4e27423b83)"></div>
-            <span>Furnished</span>
+              <img src="https://picture.liquidspace.com/index/77971980-b2ac-430d-a256-9e4e27423b83" alt="" width="30" height="30">
+            <span>Theme: <%= @workspace.theme %></span>
           </div>
 
           <div class="wlp-amenity-image-h5">
-            <div class="wlp-amenity-image" style="background-image: url(https://picture.liquidspace.com/index/84eed06b-7c79-4dc4-ad2b-ecd1a9cd0698)"></div>
-            <span class="xpp-amenity-with-description">Coffee/Tea</span>
+            <img src="https://picture.liquidspace.com/index/84eed06b-7c79-4dc4-ad2b-ecd1a9cd0698" alt="" width="30" height="30">
+            <span class="xpp-amenity-with-description"><%= @workspace.catering %></span>
           </div>
 
           <div class="wlp-amenity-image-h5">
-            <div class="wlp-amenity-image" style="background-image: url(https://picture.liquidspace.com/index/69e3abc7-53d9-4a3b-9319-a24718b2152c)"></div>
+              <img src="https://picture.liquidspace.com/index/69e3abc7-53d9-4a3b-9319-a24718b2152c" alt="" width="30" height="30">
             <span>Filtered Water</span>
           </div>
 
           <div class="wlp-amenity-image-h5">
-            <div class="wlp-amenity-image" style="background-image: url(https://picture.liquidspace.com/index/3d707afb-1997-4767-a16f-140bd092431d)"></div>
-            <span>Parking</span>
+            <img src="https://images.vexels.com/media/users/3/129762/isolated/preview/b8013d3077f62d29bce2664db694246b-check-flat-icon-by-vexels.png" alt="" width="30" height="30">
+            <span>Parking: <%= @workspace.parking %></span>
           </div>
+
+          <div class="wlp-amenity-image-h5">
+            <img src="https://images.vexels.com/media/users/3/129762/isolated/preview/b8013d3077f62d29bce2664db694246b-check-flat-icon-by-vexels.png" alt="" width="30" height="30">
+            <span>Around: <%= @workspace.environment %></span>
+          </div>
+
+
+                    <div class="wlp-amenity-image-h5">
+                      <img src="https://images.vexels.com/media/users/3/129762/isolated/preview/b8013d3077f62d29bce2664db694246b-check-flat-icon-by-vexels.png" alt="" width="30" height="30">
+                      <span><%= @workspace.security %></span>
+                    </div>
+
+                    <div class="wlp-amenity-image-h5">
+                      <img src="https://images.vexels.com/media/users/3/129762/isolated/preview/b8013d3077f62d29bce2664db694246b-check-flat-icon-by-vexels.png" alt="" width="30" height="30">
+                      <span><%= @workspace.media %></span>
+                    </div>
+
+
+
+                    <div class="wlp-amenity-image-h5">
+                      <img src="https://images.vexels.com/media/users/3/129762/isolated/preview/b8013d3077f62d29bce2664db694246b-check-flat-icon-by-vexels.png" alt="" width="30" height="30">
+                      <span>Pet: <%= @workspace.pet_friendly %></span>
+                    </div>
+
+                    <div class="wlp-amenity-image-h5">
+                      <img src="https://images.vexels.com/media/users/3/129762/isolated/preview/b8013d3077f62d29bce2664db694246b-check-flat-icon-by-vexels.png" alt="" width="30" height="30">
+                      <span>Near: <%= @workspace.near_location %></span>
+                    </div>
+
+                    <div class="wlp-amenity-image-h5">
+                      <img src="https://images.vexels.com/media/users/3/129762/isolated/preview/b8013d3077f62d29bce2664db694246b-check-flat-icon-by-vexels.png" alt="" width="30" height="30">
+                      <span>Time: <%= @workspace.available_time %></span>
+                    </div>
+
+
+
+
         </div>
-      </div>
+
+        <br>
+      
+
+        <br>
+        <hr>
+        <br>
+
+
+          <img class="crop" src="<%= Workspace::TEMP_IMG.sample %>" width="600px" >
+          <img class="crop" src="<%= Workspace::TEMP_IMG.sample %>" width="600px">
+          <img class="crop" src="<%= Workspace::TEMP_IMG.sample %>" width="600px" >
+          <img class="crop" src="<%= Workspace::TEMP_IMG.sample %>" width="600px" >
+          <br>
+          <hr>
+          <br>
+
+
+        </div>
 
 
 
@@ -58,7 +121,10 @@
 
           <div class="box-price">
             <h2>Price: $<%= @workspace.price_per_day %>/Day</h2>
+            <br>
+            <!-- <a class="btn btn-primary btn-lg" href="#">Booking with us  &raquo;</a> -->
 
+            <br>
           </div>
 
 
@@ -79,7 +145,8 @@
             <b>E-mail:</b>
             <a href="mailto:#"><%= @workspace.contact_email %></a>
           </address>
-          <%= image_tag "https://maps.googleapis.com/maps/api/staticmap?key=AIzaSyB7SSgOvYb3xo940zLJNSzU3ICtD5yQslg&zoom=15&size=400x300&sensor=false&maptype=roadmap&markers=color:red|#{@workspace.address}" %>
+
+              <%= image_tag "https://maps.googleapis.com/maps/api/staticmap?key=AIzaSyB7SSgOvYb3xo940zLJNSzU3ICtD5yQslg&zoom=15&size=400x300&sensor=false&maptype=roadmap&markers=color:red|#{@workspace.address}" %>
         </div>
       </div>
       <!-- /.row -->
@@ -87,6 +154,8 @@
     </div>
 
     <div id="map" class="mobile-display"></div>
+
+
 
 
     <!-- Gmaps js: building the map -->

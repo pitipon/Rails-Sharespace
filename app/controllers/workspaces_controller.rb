@@ -14,6 +14,8 @@ class WorkspacesController < ApplicationController
   def show
     # @workspace
     @workspace = Workspace.find(params[:id])
+
+    @markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, autolink: true, tables: true)
   end
   # ###################
 
@@ -21,7 +23,7 @@ class WorkspacesController < ApplicationController
   def index
     @workspaces = Workspace.all
 
-    render :index_user
+    # render :index_user
   end
 
 

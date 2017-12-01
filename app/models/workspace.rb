@@ -1,19 +1,19 @@
 class Workspace < ApplicationRecord
 
   SPACETYPE = [
-"-Coworking",
-"-Meeting Room",
-"-Private Office",
-"-Remote Office",
-"-Cubicle",
-"-Board Room",
-"-Training Room",
-"-Presentation Room",
-"-Deposition Room",
-"-Personal Workspace",
-"-Desk Space",
-"-Shared Office Space",
-"-Document Review"
+"Coworking",
+"Meeting Room",
+"Private Office",
+"Remote Office",
+"Cubicle",
+"Board Room",
+"Training Room",
+"Presentation Room",
+"Deposition Room",
+"Personal Workspace",
+"Desk Space",
+"Shared Office Space",
+"Document Review"
 ]
   ENVIRONMENT = ["Coworking","Business Center", "Private Business", "Hotel", "University", "Apartment", "House", "Garden"]
   THEME = ["Business", "IT", "Design", "Financial", "Artist", "Relaxed"]
