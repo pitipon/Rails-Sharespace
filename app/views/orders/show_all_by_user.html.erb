@@ -1,6 +1,6 @@
-<h1>All Booking Status</h1>
-      <div class="container">
 
+      <div class="container">
+        <h1>All Booking Status</h1>
         <% @orders.to_enum.with_index.reverse_each do |x,i| %>
         <div class="row">
           <div class="col">
@@ -16,7 +16,7 @@
               </div>
               <ul class="list-inline product-controls hidden-sm hidden-xs">
                 <li class="state_color">
-                    <%= x.state %> <i class="fa fa-heart"></i>
+                    <%= x.state %> 
                 </li>
 
               </ul>
