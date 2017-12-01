@@ -30,7 +30,7 @@
 <!-- CARD  -->
 
 <div class="container">
-  <h2 class="text-center">What is your next trip?</h2>
+  <h2 class="text-center">What are you working next?</h2>
   <div class="cards">
     <div class="row">
       <!-- CARD PART -->
@@ -39,11 +39,11 @@
         <div class="card">
 
               <!-- CARD: body -->
-              <div class="card-body" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.2)), url('<%= Workspace::TEMP_IMG.sample %>');">
+              <div class="card-body" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.2)), url('<%= x.cover_image_url %>');">
                 <span class="card-category"><%= x.space_type %></span>
                 <div class="card-description">
                   <h2><%= x.name %></h2>
-                  <p><%= x.city %>, <%= x.country %></p>
+                  <p><%= x.address %>
                 </div>
                 <img class="card-user avatar avatar-large" src="<%= x.logo %>">
                 <!-- <a class="card-link" href="index.html#"></a> -->

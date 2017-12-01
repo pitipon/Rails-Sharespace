@@ -1,0 +1,28 @@
+.wlp-amenity-image {
+  width: 72px;
+  height: 72px;
+}
+
+.wlp-amenity-image-h5 {
+  display: inline-block;
+  width: 260px;
+  line-height: 30px;
+  padding: 5px 0;
+  position: relative;
+}
+
+.wlp-amenity-image {
+  height: 30px;
+  width: 30px;
+  vertical-align: middle;
+  position: absolute;
+  left: 0;
+  top: 5px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+span {
+    margin-left: 50px;
+}

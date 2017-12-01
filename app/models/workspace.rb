@@ -1,7 +1,20 @@
 class Workspace < ApplicationRecord
 
-  SPACETYPE = ["Coworking","Meeting Room","Private Office","Remote Office","Cubicle","Board Room","Training Room","Presentation Room","Deposition Room","Personal Workspace","Desk Space","Shared Office Space","Document Review"]
-  # MINIMAL_SPACETYPE = ["Desk", "Meeting Space", "Office", "Training Room", "Event Space"]
+  SPACETYPE = [
+"-Coworking",
+"-Meeting Room",
+"-Private Office",
+"-Remote Office",
+"-Cubicle",
+"-Board Room",
+"-Training Room",
+"-Presentation Room",
+"-Deposition Room",
+"-Personal Workspace",
+"-Desk Space",
+"-Shared Office Space",
+"-Document Review"
+]
   ENVIRONMENT = ["Coworking","Business Center", "Private Business", "Hotel", "University", "Apartment", "House", "Garden"]
   THEME = ["Business", "IT", "Design", "Financial", "Artist", "Relaxed"]
   AVAILABLE_TIME = ["7 Days, 24 Hours", "5 Days, 24 Hours", "7 Days, Business Hours", "5 Days, Business Hours"]

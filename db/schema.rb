@@ -10,7 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171130062044) do
+
+ActiveRecord::Schema.define(version: 20171130094554) do
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -114,6 +116,9 @@ ActiveRecord::Schema.define(version: 20171130062044) do
     t.text "logo"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "attr"
+    t.string "cover_image_url"
+    t.string "banner_image_url"
   end
 
 end
