@@ -4,8 +4,7 @@ class OrdersController < ApplicationController
   before_action :find_order, only: [:show_by_user]
   before_action :set_workspace, only: [:new_by_user, :create_by_user]
   before_action :set_user, only: [:new_by_user, :create_by_user, :show_by_user, :show_all_by_user]
-
-
+  before_action :set_owner, only: [:show_all_by_owner]
 
   def new_by_user
     # @user
@@ -42,7 +41,31 @@ class OrdersController < ApplicationController
   def show_all_by_user
     # @user
     @orders = Order.all
-    
+
+  end
+
+  def show_all_by_owner
+    # @owner
+    @orders = Order.all
+    @orders_from_owner = []
+
+    @orders.each do |x|
+      p "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+      p x
+      p owner = Owner.find(Workspace.find(x.workspace_id).owner_id)
+      p @owner
+
+      # p "|"
+      # p @owner
+      if owner == @owner
+        p x
+        @orders_from_owner << x
+      end
+
+    end
+
+    p "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+    p @orders_from_owner
   end
 
   # def index
@@ -101,6 +124,7 @@ class OrdersController < ApplicationController
   private
 
 
+
   # find user by id
   def set_workspace
     @workspace = Workspace.find(params[:workspace_id])
@@ -123,7 +147,7 @@ class OrdersController < ApplicationController
 
   def resolve_layout
     case action_name
-    when "show_by_owner"  # [:index, :show, :new, :create]
+    when "show_by_owner","show_all_by_owner"  # [:index, :show, :new, :create]
       "owner"
     when "new_by_user","show_by_user","show_all_by_user"
       "user"

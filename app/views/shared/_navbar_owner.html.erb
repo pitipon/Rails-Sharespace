@@ -10,12 +10,9 @@
     <% if owner_signed_in? %>
 
       <!-- Links when logged in -->
-      <%= link_to "Agreement", "#", class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to "Booking Status", "#", class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to "Schedule", "#", class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to "History", "#", class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to "Get Started", "#", class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to "Booking Status", owner_orders_show_all_by_owner_path(current_owner), class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to "Payment", "#", class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to "Messages", "#", class: "navbar-wagon-item navbar-wagon-link" %>
 
       <!-- Avatar with dropdown menu -->
       <div class="navbar-wagon-item">
@@ -51,12 +48,9 @@
     <div class="dropdown">
       <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
       <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-        <li><a href="#">Agreement</a></li>
-        <li><a href="#">Booking Status</a></li>
-        <li><a href="#">Schedule</a></li>
-        <li><a href="#">History</a></li>
+        <li><a href="#">Get Started</a></li>
+        <li><%= link_to "Booking Status", owner_orders_show_all_by_owner_path(current_owner), class: "navbar-wagon-item navbar-wagon-link" %></li>
         <li><a href="#">Payment</a></li>
-        <li><a href="#">Messages</a></li>
         <hr>
         <li>
           <%= link_to "#" do %>

@@ -1,0 +1,28 @@
+<h1>All Booking Status</h1>
+      <div class="container">
+
+        <% @orders_from_owner.to_enum.with_index.reverse_each do |x,i| %>
+        <div class="row">
+          <div class="col">
+            <div class="product">
+              <div class='product-upvote'>
+                <!-- <div class="product-arrow"></div> -->
+                <div class='product-count'><%= i+1 %></div>
+              </div>
+              <img src="<%= Workspace::TEMP_IMG.sample %>" alt="kudoz" class="product-image hidden-xs">
+              <div class='product-body'>
+                <h3><%= Workspace.find(x.workspace_id).name %></h3>
+                <p>User: <%= User.find(x.user_id).email %></p>
+                <p><%= x.start_date.strftime('%a %d %b %Y')  %> - <%= x.end_date.strftime('%a %d %b %Y')  %></p>
+              </div>
+              <ul class="list-inline product-controls hidden-sm hidden-xs">
+                <li class="state_color">
+                    <%= x.state %> <i class="fa fa-heart"></i>
+                </li>
+
+              </ul>
+            </div>
+          </div>
+        </div>
+        <% end %>
+      </div>
