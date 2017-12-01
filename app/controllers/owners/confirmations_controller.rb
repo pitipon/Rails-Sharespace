@@ -1,5 +1,5 @@
 class Owners::ConfirmationsController < Devise::ConfirmationsController
-  layout 'owner'
+
   # GET /resource/confirmation/new
   # def new
   #   super

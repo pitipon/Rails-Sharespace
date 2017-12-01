@@ -1,0 +1,74 @@
+<!-- Header with Background Image -->
+    <header class="business-header text-center banner"  style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.2) 0%, rgba(0,36,61,0.5) 10%), url('https://www.bkkmenu.com/uploads/content/img/gallery/highlight/Nikko-Cafe-Nikko-Cafe-3.jpg');">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+
+            <img class="logo-workspace " src="<%= @workspace.logo %>">
+            <h1><%= @workspace.name %></h1>
+            <p>Price: $<%= @workspace.price_per_day %>/day</p>
+
+
+
+          </div>
+        </div>
+      </div>
+    </header>
+
+
+
+
+<!-- Booking Part -->
+
+<div class="container">
+
+  <div class="row">
+    <div class="col">
+      <h2>Booking Date</h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class='col-xs-6'>
+      <!-- Date Picker : FROM -->
+      <%= simple_form_for @order, url: user_workspace_orders_create_by_user_path do |f| %>
+      <%= f.input :start_date , input_html: { id: 'datetimepicker6'}, :as => :string %>
+      <%= f.input :end_date , input_html: { id: 'datetimepicker7'}, :as => :string  %>
+      <%= f.input :remark %>
+      <%= f.button :submit %>
+      <% end %>
+
+
+
+    </div>
+
+    <div class='col-xs-6'>
+      <!-- Date Picker : TO -->
+
+    </div>
+  </div>
+
+</div>
+
+
+
+<%= content_for(:after_js) do %>
+  <script type="text/javascript">
+      $(function () {
+          $('#datetimepicker6').datetimepicker({
+              format: 'Do MMMM YYYY'
+          });
+          $('#datetimepicker7').datetimepicker({
+              format: 'Do MMMM YYYY',
+              useCurrent: false //Important! See issue #1075
+          });
+          $("#datetimepicker6").on("dp.change", function (e) {
+              $('#datetimepicker7').data("DateTimePicker").minDate(e.date);
+          });
+          $("#datetimepicker7").on("dp.change", function (e) {
+              $('#datetimepicker6').data("DateTimePicker").maxDate(e.date);
+          });
+
+      });
+  </script>
+  <% end %>
+<!-- Date Picker -->

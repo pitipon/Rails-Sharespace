@@ -5,20 +5,27 @@ class WorkspacesController < ApplicationController
   before_action :set_owner, only: [ :new_by_owner, :create_by_owner]
 
 
-  # GET    /owner/:owner_id/workspaces
-  def index_owner
-    # @owner
-    # @workspaces
-    @owner = current_owner
-    find_workspaces_of_owner
+  ##VISITOR Actions####
 
+  def index
+    @workspaces = Workspace.all
   end
+
+  def show
+    # @workspace
+    @workspace = Workspace.find(params[:id])
+  end
+  # ###################
+
 
   def index
     @workspaces = Workspace.all
 
     render :index_user
   end
+
+
+  ##USER Actions ######
 
   # GET   /user/:user_id/workspaces
   def index_user
@@ -32,6 +39,18 @@ class WorkspacesController < ApplicationController
     @workspace = Workspace.find(params[:id])
 
     @markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, autolink: true, tables: true)
+  end
+  # ###################
+
+
+  ##OWNER Actions######
+
+  # GET    /owner/:owner_id/workspaces
+  def index_owner
+    # @owner
+    # @workspaces
+    @owner = current_owner
+    find_workspaces_of_owner
   end
 
   # owner_workspaces_show_by_owner GET    /owner/:owner_id/workspaces/:id(.:format)          workspaces#show_by_owner
@@ -55,7 +74,6 @@ class WorkspacesController < ApplicationController
     @workspace.owner = @owner
     @workspace.save
     redirect_to root_path, notice: 'Workspace was successfully created.'
-
   end
 
 
@@ -94,12 +112,12 @@ private
   def workspace_params
     params.require(:workspace).permit(
       :name,
-      # :description,
-      # :address,
-      # :price_per_day,
+      :description,
+      :address,
+      :price_per_day,
       :owner_id,
       :space_type,
-      # :capacity_max,
+      :capacity_max,
       :environment,
       :theme,
       :available_time,
@@ -109,12 +127,12 @@ private
       :services,
       :free_rooms,
       :parking,
-      # :pet_friendly,
-      # :utilities,
+      :pet_friendly,
+      :utilities,
       # :near_location,
-      # :contact_number,
-      # :contact_name,
-      # :contact_email
+      :contact_number,
+      :contact_name,
+      :contact_email
     )
   end
 

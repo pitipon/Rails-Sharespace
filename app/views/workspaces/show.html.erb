@@ -1,121 +1,97 @@
-<div width="100%" style="height: 300px; background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://kitt.lewagon.com/placeholder/cities/berlin');">
 
-    <a id="schedule-tour" class="btn btn-primary btn-lg">Schedule a Tour</a>
-  </div>
-
-    <div id="header"></div>
-
-
-     <div class="wrapper-blue">
-      <h2><strong>Open Desk - 10 Available at SBC - Chengdu</strong></h2>
+<!-- Header with Background Image -->
+    <header class="business-header text-center banner"  style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.2) 0%, rgba(0,36,61,0.5) 10%), url('https://www.bkkmenu.com/uploads/content/img/gallery/highlight/Nikko-Cafe-Nikko-Cafe-3.jpg');">
       <div class="container">
-      <div class="row">
-        <div class="col-xs-12 col-md-6">
-        <h3>Coworking Space Details</h3>
-        <p>
-          <ul>High speed internet (Wired/Wireless).</ul>
-          <ul>24/7 Access to open desk space.</ul>
-          <ul>Coffee, tea, and filtered water.</ul>
-          <ul>Shared print/scan/fax.</ul>
-        </p>
-    </div>
-    <div class="col-xs-12 col-md-6">
-      <h3>Contact For Pricing & Book a Tour</h3>
-        <p>
-          <ul><strong>Phone</strong>: 186-0228-2160</ul>
-          <ul><strong>Email</strong>: pandaland@sspace.com</ul>
-          <ul><strong>Hours</strong>: M - F 9AM - 6PM </ul>
-        </p>
+        <div class="row">
+          <div class="col-lg-12">
+
+
+            <img class="logo-workspace " src="<%= @workspace.logo %>">
+            <h1><%= @workspace.name %></h1>
+            <p><%= @workspace.description %></p>
+
+
+
+          </div>
         </div>
       </div>
+    </header>
+
+    <!-- Page Content -->
+    <div class="container">
+
+      <div class="row">
+        <div class="col-sm-8">
+          <h2 class="mt-4">What We Do</h2>
+
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A deserunt neque tempore recusandae animi soluta quasi? Asperiores rem dolore eaque vel, porro, soluta unde debitis aliquam laboriosam. Repellat explicabo, maiores!</p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis optio neque consectetur consequatur magni in nisi, natus beatae quidem quam odit commodi ducimus totam eum, alias, adipisci nesciunt voluptate. Voluptatum.</p>
+          <p>
+
+            <%= link_to t(".sign_in", default: "Booking >"), new_user_session_path, class: "btn btn-primary btn-sm" %>
+          </p>
+        </div>
+
+
+
+
+        <div class="col-sm-4">
+
+          <div class="box-price">
+            <h2>Price: $<%= @workspace.price_per_day %>/Day</h2>
+            <br>
+            <!-- <a class="btn btn-primary btn-lg" href="#">Booking with us  &raquo;</a> -->
+
+            <%= link_to t(".sign_in", default: "Booking >"), new_user_session_path, class: "btn btn-primary btn-md" %>
+            <br>
+          </div>
+
+
+          <h3>Contact Us</h3>
+
+          <address>
+            <strong><%= @workspace.name %></strong>
+            <br><%= @workspace.address %>
+            <br><%= @workspace.city %>, <%= @workspace.country %>
+            <br>
+          </address>
+          <address>
+            <b>Contact Person</b> <br>
+            <%= @workspace.contact_name %>
+            <br>
+            <b>Phone:</b>
+            <%= @workspace.contact_number %>
+            <br>
+            <b>E-mail:</b>
+            <a href="mailto:#"><%= @workspace.contact_email %></a>
+          </address>
+        </div>
+      </div>
+      <!-- /.row -->
+
     </div>
-  </div>
 
-  <div>
-  </div>
-      <!-- Including Bootstrap JS (with its jQuery dependency) so that dynamic components work -->
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-<style>
-#schedule-tour {
-  margin: 0 auto;
-  width: 220px;
-  display: block;
-}
+    <div id="map" class="mobile-display"></div>
 
-.background {
-  background: #FFFFFF;
-}
 
-.card {
-  background:#FFFFFF
-}
-
-.card-white{
-  background: #FFFFFF
-}
-
-.wrapper-grey{
-  background:#FFFFFF
-}
-
-.wrapper-blue{
-  background:#FFFFFF
-}
-
-#map {
-  height: 50%;
-}
-html, body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  background: #FFFFFF;
-}
-#floating-panel {
-  position: absolute;
-  top: 10px;
-  left: 25%;
-  z-index: 5;
-  background-color: #fff;
-  padding: 5px;
-  border: 1px solid #999;
-  text-align: center;
-  font-family: 'Roboto','sans-serif';
-  line-height: 30px;
-  padding-left: 10px;
-}
-</style>
-
-<div id="map">
-  <script>
-    function initMap() {
-        var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 8,
-          center: {lat: -34.397, lng: 150.644}
-        });
-        // var geocoder = new google.maps.Geocoder();
-
-        // document.getElementById('submit').addEventListener('click', function() {
-        //   geocodeAddress(geocoder, map);
-        // });
-      }
-    function geocodeAddress(geocoder, resultsMap) {
-        var address = document.getElementById('address').value;
-        geocoder.geocode({'address': address}, function(results, status) {
-          if (status === 'OK') {
-            resultsMap.setCenter(results[0].geometry.location);
-            var marker = new google.maps.Marker({
-              map: resultsMap,
-              position: results[0].geometry.location
-            });
-          } else {
-            alert('Geocode was not successful for the following reason: ' + status);
-          }
-        });
-      }
-  </script>
-  <script async defer
-    src="https://maps.googleapis.com/maps/api/js?callback=initMap&key=AIzaSyB7SSgOvYb3xo940zLJNSzU3ICtD5yQslg">
-  </script>
-  </div>
+    <!-- Gmaps js: building the map -->
+<script>
+  function initMap() {
+    // Create a map object and specify the DOM element for display.
+    var map = new google.maps.Map(document.getElementById('map'), {
+      center: {
+        lat: 52.5206,
+        lng: 13.4098
+      },
+      scrollwheel: false,
+      zoom: 8
+    });
+  }
+</script>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<!-- Gmaps JavaScript -->
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAsnmPj0gjQ-azvfUbyFmYsHiafwO-Abzc&callback=initMap">
+</script>
