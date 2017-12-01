@@ -1,17 +1,29 @@
-<h2>Sign up</h2>
-
+<div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://blog.invoiceberry.com/wp-content/uploads/2016/11/birmingham-coworking-impacthub-3-e1478618746427.png');">
+<div class="box-for-signup">
+  <div class="box-shadowing">
+    <div class="link-for-coloring">
+        <h2 class="greeting-signup">CREATE ACCOUNT</h2>
+        <i class="fa fa-fw fa-user-o" aria-hidden="true"></i>
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= f.error_notification %>
-
+  <div class="new-usersignin">
   <div class="form-inputs">
     <%= f.input :email, required: true, autofocus: true %>
+    <i class="fa fa-fw fa-lock" aria-hidden="true"></i>
     <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
+    <i class="fa fa-fw fa-lock" aria-hidden="true"></i>
     <%= f.input :password_confirmation, required: true %>
   </div>
-
+</div>
   <div class="form-actions">
-    <%= f.button :submit, "Sign up" %>
+    <%= f.button :submit, "Sign up", class: "btn btn-primary" %>
   </div>
 <% end %>
 
-<%= render "users/shared/links" %>
+
+    </div>
+  </div>
+</div>
+
+
+
