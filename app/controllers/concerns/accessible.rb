@@ -10,6 +10,8 @@ module Accessible
     if current_owner
       flash.clear
       # if you have rails_owner. You can redirect anywhere really
+      puts "###########################"
+      puts authenticated_owner_root_path
       redirect_to(authenticated_owner_root_path) && return
     elsif current_user
       flash.clear
